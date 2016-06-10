@@ -6,15 +6,21 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Group;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
+
+import Logic.AddEventManager;
+import tgrkKompo.Event;
 
 public class AddEventGUI extends JPanel {
 	
@@ -44,10 +50,13 @@ public class AddEventGUI extends JPanel {
 	JLabel minutesA= new JLabel("        Minutes: ");
 	JComboBox minutesAL=new JComboBox();
 	
+	public JButton addButton = new JButton("Add Event");
+
+	
+
 	public AddEventGUI(){
 		
-		
-		
+	addButton.addActionListener((ActionListener) new AddEventManager(this));
 
 	//setBackground(Color.red);
 	//super();
@@ -99,7 +108,19 @@ public class AddEventGUI extends JPanel {
 	add(hourAL);
 	add(minutesA);
 	add(minutesAL);
+	add(addButton);
 	
+	}
+	
+	public Event getEvent()
+	{
+		Date d1 = new Date();
+		Date d2 = new Date();
+		
+		d1 = chose.getDate();
+		d1.setHours((int) hourT.getSelectedItem());
+		//d1.setMinutes((int) minutesT.getSelectedItem());
+		return new Event(nameT.getText(), descriptionT.getText(), placeT.getText(), chose.getDate(), choseAlarm.getDate());
 	}
 	
 }
