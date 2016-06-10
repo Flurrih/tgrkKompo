@@ -12,10 +12,11 @@ public class Application extends JApplet{
 	{
 		setSize(500,500);
 		mainPane.add("Calendar", new CalendarGUI(this));
+		mainPane.add("Add Task", new AddEventGUI());
 		add(mainPane);
 	}
 	
-	void selectTab(int i)
+	public void selectTab(int i)
 	{
 		mainPane.setSelectedIndex(i);
 	}

@@ -50,5 +50,11 @@ public class DataRepository {
     {
     	return months;
     }
+    
+    
+    public int getMonthLen(int i)
+    {
+    	return days[i];
+    }
 
 }
