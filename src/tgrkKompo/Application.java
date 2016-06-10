@@ -18,6 +18,7 @@ public class Application extends JApplet{
 	
 	public void selectTab(int i)
 	{
+		System.out.println("dffsdf");
 		mainPane.setSelectedIndex(i);
 	}
 }

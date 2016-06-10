@@ -39,7 +39,7 @@ public class CalendarGUI extends JPanel  {
     
     public CalendarGUI(Application app)
     {
-    	
+    	this.app = app;
         for(int i=0;i< data.getMonths().length;i++)
         {
             month.addItem(data.getMonth(i));

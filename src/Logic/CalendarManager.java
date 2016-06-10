@@ -47,7 +47,7 @@ public class CalendarManager implements ItemListener,ActionListener{
 			{
 				System.out.println("Dziala");
 				Date tmp= new Date(cal.year.getSelectedIndex()+80,cal.month.getSelectedIndex(),i+1);
-				//cal.app.selectTab(1);  nie moge przelaczyc
+				cal.app.selectTab(1); 
 				
 			}
 			
