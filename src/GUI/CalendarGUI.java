@@ -34,8 +34,8 @@ public class CalendarGUI extends JPanel  {
     public JComboBox year = new JComboBox();
     public JButton goBack= new JButton("Go Back");
     public ArrayList<JButton> buttons= new ArrayList<JButton>();
+    public Date date; 
     
-
     public static Application app;
     
     public CalendarGUI(Application app, EventRepository evRepo)
@@ -91,7 +91,7 @@ public class CalendarGUI extends JPanel  {
                  panel2.add(label);
              }
              
-             Date date = new Date("01-"+inputMonth+"-"+inputYear);
+             date = new Date("01-"+inputMonth+"-"+inputYear);
              int noOfDaysInMonth = data.getMonthLen(date.getMonth());
              if(date.getYear()%4==0 && date.getMonth()==1)
              {
@@ -156,14 +156,19 @@ public class CalendarGUI extends JPanel  {
                  }
              }
           	 
-          	 
-             
-             if(month.getSelectedItem()== data.getActualMonth() && year.getSelectedIndex()==(date.getYear()-80))buttons.get(data.getActualDay()).setBackground(Color.RED);
+          	// System.out.println("Wybrany" + year.getSelectedIndex());
+            // System.out.println("Aktualny" + data.getActualYear());
+             if(month.getSelectedItem()== data.getActualMonth() && year.getSelectedIndex()==(data.getActualYear()-1980))buttons.get(data.getActualDay()).setBackground(Color.RED);
              
              panel2.validate();
           	 
           	 
         	
+        }
+        
+        public void refreshCalendar()
+        {
+        	drawCalendar(data.getMonth((date.getMonth())), new Integer((1900+date.getYear())));
         }
         
     }

@@ -12,19 +12,23 @@ public class Application extends JApplet{
 	public JTabbedPane mainPane = new JTabbedPane();
 	EventRepository evRepo = new EventRepository();
 	public XML_SQL_Manager ser = new XML_SQL_Manager(evRepo);
+	public CalendarGUI cale=new CalendarGUI(this,evRepo);
 	
 	public void init()
 	{
+		
 		setSize(500,500);
-		mainPane.add("Calendar", new CalendarGUI(this,evRepo));
-		mainPane.add("Add Task", new AddEventGUI(ser));
+		mainPane.add("Calendar", cale);
+		mainPane.add("Add Task", new AddEventGUI(ser,cale));
 		mainPane.add("Events", new EventTableGUI(ser));
+		mainPane.add("About", new AboutGUI());
+		mainPane.add("Week 9", new Week9());
 		add(mainPane);
 	}
 	
 	public void selectTab(int i)
 	{
-		System.out.println("dffsdf");
+		//System.out.println("dffsdf");
 		mainPane.setSelectedIndex(i);
 	}
 }

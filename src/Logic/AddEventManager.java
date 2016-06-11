@@ -25,6 +25,7 @@ public class AddEventManager implements ActionListener{
 		{
 			System.out.println(gui.getEvent().toString());
 			XML_SQL_Manager.addEvent(gui.getEvent());
+			gui.cal.refreshCalendar();
 		}
 	}
 
