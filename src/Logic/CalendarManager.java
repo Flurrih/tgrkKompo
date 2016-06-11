@@ -62,7 +62,7 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 	public void mouseClicked(MouseEvent arg0) {
 		if(arg0.getButton()==arg0.BUTTON3)
 		{
-			System.out.println("dziala :D");
+			//System.out.println("dziala :D");
 			 PopUpCalendar menu = new PopUpCalendar();
 		     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
 		}

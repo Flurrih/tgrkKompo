@@ -98,8 +98,8 @@ public class CalendarGUI extends JPanel  {
                  noOfDaysInMonth = 29;
              }
              
-             
-            //ArrayList<Event> tmp2=DBQuery.getAllEventsList(); lista eventow
+             XML_SQL_Manager cnct= new XML_SQL_Manager(evRepo);
+            ArrayList<Event> tmp2=cnct.getAllEventsSQL();
            
              for(int i=0;i<=noOfDaysInMonth+1;i++)
              {
@@ -109,17 +109,17 @@ public class CalendarGUI extends JPanel  {
           	   buttons.get(i).addMouseListener(new CalendarManager(this));
           	   Date tmp= new Date(year.getSelectedIndex()+80,month.getSelectedIndex(),i+1);
           	   
-          	   	//for(int j=0;j<tmp2.size();j++)
-          	   	//{
+          	   	for(int j=0;j<tmp2.size();j++)
+          	   	{
           	   		//System.out.println("lista");
           	   		//System.out.println(tmp2.get(j).date.getDate());
           	   		//System.out.println("tmp");
           	   		//System.out.println(tmp.getDate());
-          	   		//if(tmp2.get(j).date.compareTo(tmp)==0)
-          	   			//{
+          	   		if(tmp2.get(j).eventDate.compareTo(tmp)==0)
+          	   			{
           	   			//System.out.println("ZMIANA KOLORU !!!");
-          	   			//buttons.get(i).setBackground(Color.blue);}
-          	   	//}
+          	   			buttons.get(i).setBackground(Color.blue);}
+          	   	}
           	  
              }
           	 for(int i=1, day=1;day<=noOfDaysInMonth;i++)
