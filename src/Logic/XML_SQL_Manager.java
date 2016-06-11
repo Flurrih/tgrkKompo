@@ -77,8 +77,8 @@ public class XML_SQL_Manager {
 					+ ev.name +"','" 
 					+ ev.description + "','" 
 					+ ev.place + "','" 
-					+ ev.eventDate + "','" 
-					+ ev.eventReminderDate 
+					+ DateFormat.getDateInstance().format(ev.eventDate) + "','" 
+					+ DateFormat.getDateInstance().format(ev.eventReminderDate) 
 					+"');");
 			
 		} catch (SQLException sqlException) {
