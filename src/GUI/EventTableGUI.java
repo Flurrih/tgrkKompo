@@ -55,7 +55,7 @@ public class EventTableGUI extends JPanel{
 		js.removeAll();
 		model = new DefaultTableModel(ser.getEventsArray(), columnNames);
 		table = new JTable(model);
-		//table.addMouseListener(this);
+		table.addMouseListener((MouseListener) new EventTableManager(ser, this));
 		js=new JScrollPane(table);
 		add(js);
 	}

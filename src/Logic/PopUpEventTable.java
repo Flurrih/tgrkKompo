@@ -24,6 +24,16 @@ public class PopUpEventTable extends JPopupMenu implements ActionListener{
 	     add(edittask);
 	     edittask.addActionListener(this);
 	 }
+	 
+	 public void init()
+	 {
+		 deletetask=new JMenuItem("Delete task");
+	     add(deletetask);
+	     deletetask.addActionListener(this);
+	     edittask=new JMenuItem("Edit task");
+	     add(edittask);
+	     edittask.addActionListener(this);
+	 }
 	public void actionPerformed(ActionEvent arg0) {
 		
 		if(arg0.getSource()==deletetask)

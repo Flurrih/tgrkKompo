@@ -130,7 +130,6 @@ public class XML_SQL_Manager {
 			ret[i][2] = repo.eventList.get(i).place;
 			ret[i][3] = repo.eventList.get(i).eventDate.toString();
 			ret[i][4] = repo.eventList.get(i).eventReminderDate.toString();
-			
 		}
 
 
