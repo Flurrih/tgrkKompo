@@ -14,16 +14,19 @@ public class PopUpCalendar extends JPopupMenu implements ActionListener {
 	
 	 JMenuItem addtask;
 	 JMenuItem showtasks;
-	 PopUpCalendar()
+	 Date tmp;
+	 PopUpCalendar(Date tmp)
 	 {
+		 	this.tmp=tmp;
 			showtasks=new JMenuItem("Show Tasks");
 	       	add(showtasks);
+	       	showtasks.addActionListener(this);
 	 }
 	
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==showtasks)
 		{
-			FrameShowTask frm= new FrameShowTask(new Date());
+			FrameShowTask frm= new FrameShowTask(tmp);
 		}
 		
 	}

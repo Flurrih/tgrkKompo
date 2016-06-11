@@ -67,8 +67,8 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 			{
 				if(arg0.getButton()==arg0.BUTTON3)
 	{
-		 //System.out.println("Popupkolor");
-		 PopUpCalendar menu = new PopUpCalendar();
+		 Date tmp= new Date(cal.year.getSelectedIndex()+80,cal.month.getSelectedIndex(),i+1);
+		 PopUpCalendar menu = new PopUpCalendar(tmp);
 	     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
 	}
 			}
