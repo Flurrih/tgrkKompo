@@ -10,10 +10,11 @@ public class PopUpEventTable extends JPopupMenu implements ActionListener{
 
 	JMenuItem deletetask;
 	 JMenuItem edittask;
+	private XML_SQL_Manager ser;
 	
-	 PopUpEventTable()
+	 PopUpEventTable(XML_SQL_Manager ser, EventTableManager evtab)
 	 {
-		 
+		 this.ser = ser;
 		 deletetask=new JMenuItem("Delete task");
 	     add(deletetask);
 	     edittask=new JMenuItem("Edit task");
@@ -21,7 +22,13 @@ public class PopUpEventTable extends JPopupMenu implements ActionListener{
 	 }
 	public void actionPerformed(ActionEvent arg0) {
 		
-		
+		if(arg0.getSource()==deletetask)
+		{
+			//ser.deleteTask(asd.getSelectedEvent());
+			//asd.updateData();
+			//asd.revalidate();
+			//asd.repaint();
+		}
 	}
 
 }
