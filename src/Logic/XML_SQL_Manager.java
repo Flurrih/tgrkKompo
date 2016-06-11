@@ -85,13 +85,7 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
-		
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 	}
 	
 	public static ArrayList<Event> getAllEventsSQL()
@@ -115,12 +109,7 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		
 		return events;
 	}
@@ -151,5 +140,15 @@ public class XML_SQL_Manager {
 	public static void updateRepoSQL()
 	{
 		repo.addEvents(getAllEventsSQL());
+	}
+	
+	public static void deleteTaskSQL(Object[] obj)
+	{
+
+		try {
+			stmt.executeUpdate("DELETE FROM events WHERE name = '" + obj[0] + "'");
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
 	}
 }

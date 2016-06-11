@@ -16,8 +16,7 @@ import tgrkKompo.Event;
 
 public class EventTableGUI extends JPanel{
 
-	JTable table;
-	int clickedRecord = -1;
+	public JTable table;
 	
 	JScrollPane js;
 	static Object[] columnNames = {"Zdarzenie",
@@ -86,7 +85,7 @@ public class EventTableGUI extends JPanel{
 	
 	
 
-	public Object[] getSelectedEvent()
+	public Object[] getSelectedEvent(int clickedRecord)
 	{
 		System.out.println(model.getValueAt(clickedRecord, 0));
 		Object[] obj = {model.getValueAt(clickedRecord, 0), model.getValueAt(clickedRecord, 0) , 

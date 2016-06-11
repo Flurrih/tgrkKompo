@@ -8,7 +8,9 @@ import GUI.EventTableGUI;
 public class EventTableManager implements MouseListener {
 
 	XML_SQL_Manager ser;
-	private EventTableGUI gui;
+	public EventTableGUI gui;
+
+	int clickedRecord = -1;
 	
 	public EventTableManager(XML_SQL_Manager ser, EventTableGUI gui) {
 		this.ser = ser;
@@ -18,6 +20,7 @@ public class EventTableManager implements MouseListener {
 	public void mouseClicked(MouseEvent arg0) {
 		if(arg0.getButton()==arg0.BUTTON3)
 		{
+			clickedRecord = gui.table.rowAtPoint(arg0.getPoint());
 			//System.out.println("dziala :D");
 			 PopUpEventTable menu = new PopUpEventTable(ser, this);
 		     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
