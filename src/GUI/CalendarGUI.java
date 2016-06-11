@@ -18,13 +18,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Data.DataRepository;
+import Data.EventRepository;
 import Logic.*;
 import tgrkKompo.Application;
 
 public class CalendarGUI extends JPanel  {
 
 	public DataRepository data = new DataRepository();
-
+	static EventRepository evRepo;
 	
 	public JPanel panel = new JPanel();
 	public JPanel panel2 = new JPanel();
@@ -37,8 +38,9 @@ public class CalendarGUI extends JPanel  {
 
     public static Application app;
     
-    public CalendarGUI(Application app)
+    public CalendarGUI(Application app, EventRepository evRepo)
     {
+    	this.evRepo = evRepo;
     	this.app = app;
         for(int i=0;i< data.getMonths().length;i++)
         {
@@ -72,7 +74,7 @@ public class CalendarGUI extends JPanel  {
     }
         public static void main(String args[])
         {
-        	CalendarGUI frame = new CalendarGUI(app);
+        	CalendarGUI frame = new CalendarGUI(app,evRepo);
         }
         
         

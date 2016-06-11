@@ -7,6 +7,9 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.GroupLayout;
@@ -19,7 +22,9 @@ import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
+import Data.EventRepository;
 import Logic.AddEventManager;
+import Logic.XML_SQL_Manager;
 import tgrkKompo.Event;
 
 public class AddEventGUI extends JPanel {
@@ -52,10 +57,10 @@ public class AddEventGUI extends JPanel {
 	
 	public JButton addButton = new JButton("Add Event");
 
-	
+	public  XML_SQL_Manager ser;
 
-	public AddEventGUI(){
-		
+	public AddEventGUI(XML_SQL_Manager ser){
+	this.ser = ser;
 	addButton.addActionListener((ActionListener) new AddEventManager(this));
 
 	//setBackground(Color.red);
@@ -112,15 +117,20 @@ public class AddEventGUI extends JPanel {
 	
 	}
 	
+	@SuppressWarnings("deprecation")
 	public Event getEvent()
 	{
-		Date d1 = new Date();
-		Date d2 = new Date();
-		
+		Date d1 ;
 		d1 = chose.getDate();
-		d1.setHours((int) hourT.getSelectedItem());
-		//d1.setMinutes((int) minutesT.getSelectedItem());
-		return new Event(nameT.getText(), descriptionT.getText(), placeT.getText(), chose.getDate(), choseAlarm.getDate());
+		d1.setHours(Integer.parseInt(hourT.getSelectedItem().toString()));
+		d1.setMinutes(Integer.parseInt(minutesT.getSelectedItem().toString()));
+
+		Date d2;
+		d2 = choseAlarm.getDate();
+		d2.setHours(Integer.parseInt(hourAL.getSelectedItem().toString()));
+		d2.setMinutes(Integer.parseInt(minutesAL.getSelectedItem().toString()));
+		//DateFormat.getInstance().format(d1)
+		return new Event(nameT.getText(), descriptionT.getText(), placeT.getText(), d1, d2);
 	}
 	
 }

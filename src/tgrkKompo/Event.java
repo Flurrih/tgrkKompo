@@ -9,20 +9,22 @@ public class Event {
 	public String description;
 	public String place;
 	public Date eventDate;
-	public Date eventReminder;
+	public Date eventReminderDate;
 	
-	public Event(String name,String desc,String place,Date eventDate, Date eventReminder)
+	public Event(String name,String desc,String place,Date eventDate, Date eventReminderDate)
 	{
 		this.name = name;
 		this.description = desc;
 		this.place = place;
 		this.eventDate = eventDate;
-		this.eventReminder = eventReminder;
+		this.eventReminderDate = eventReminderDate;
 	}
-	
+
 	public String toString()
 	{
-		return name + " " + description + " " + place + " " + DateFormat.getDateInstance().format(eventDate) + " " + DateFormat.getDateInstance().format(eventReminder);
+		return name + " " + description + " " + place + " " +
+				eventDate.toString() + " " + 
+				eventReminderDate.toString();
 	}
 
 }
