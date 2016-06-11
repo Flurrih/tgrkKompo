@@ -106,7 +106,7 @@ public class CalendarGUI extends JPanel  {
           	   
           	   buttons.add(new JButton(String.valueOf(i+1)));
           	   buttons.get(i).addActionListener(new CalendarManager(this));
-          	   //buttons.get(i).addMouseListener(this);
+          	   buttons.get(i).addMouseListener(new CalendarManager(this));
           	   Date tmp= new Date(year.getSelectedIndex()+80,month.getSelectedIndex(),i+1);
           	   
           	   	//for(int j=0;j<tmp2.size();j++)

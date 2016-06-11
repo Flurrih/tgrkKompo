@@ -19,12 +19,12 @@ public class AddEventManager implements ActionListener{
 		this.gui = gui;
 		ser = gui.ser;
 	}
-	@Override
+	
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource() == gui.addButton)	
 		{
 			System.out.println(gui.getEvent().toString());
-			ser.addEvent(gui.getEvent());
+			XML_SQL_Manager.addEvent(gui.getEvent());
 		}
 	}
 
