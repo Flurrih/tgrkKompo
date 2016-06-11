@@ -129,6 +129,7 @@ public class XML_SQL_Manager {
 	
 	public Object[][] getEventsArray()
 	{
+		updateRepoSQL();
 		Object[][] ret = new Object[repo.eventList.size()][5];
 
 		
@@ -143,7 +144,7 @@ public class XML_SQL_Manager {
 			
 		}
 
-		
+
 		return ret;
 	}
 	

@@ -22,6 +22,7 @@ public class EventTableGUI extends JPanel{
 	        "Opis",
 	        "Miejsce",
 	        "Data",
+	        "Data2",
 	       };
 
 	XML_SQL_Manager ser;
@@ -34,13 +35,18 @@ public class EventTableGUI extends JPanel{
 	{
 				super();
 				//this.e1=edit;
+				
+				model = new DefaultTableModel(ser.getEventsArray(), columnNames);
 				table = new JTable(model);
 				js=new JScrollPane(table);
 				add(js);
 				//e1.eventsTable = this;
 				//table.addMouseListener(this);
 				this.ser = ser;
-				model = new DefaultTableModel(ser.getEventsArray(), columnNames);
+				System.out.println(ser.getEventsArray().length);
+				
+				
+				
 	}
 	
 	public void updateData() {
