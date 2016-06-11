@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.DateFormat;
 
 import javax.swing.JPanel;
@@ -9,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Data.EventRepository;
+import Logic.EventTableManager;
 import Logic.XML_SQL_Manager;
 import tgrkKompo.Event;
 
@@ -41,7 +43,7 @@ public class EventTableGUI extends JPanel{
 				js=new JScrollPane(table);
 				add(js);
 				//e1.eventsTable = this;
-				//table.addMouseListener(this);
+				table.addMouseListener((MouseListener) new EventTableManager());
 				this.ser = ser;
 				System.out.println(ser.getEventsArray().length);
 				
@@ -82,26 +84,6 @@ public class EventTableGUI extends JPanel{
 	}*/
 		
 	
-
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 	public Object[] getSelectedEvent()
