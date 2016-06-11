@@ -2,6 +2,7 @@ package Logic;
 
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -58,13 +59,19 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 		}
 		
 	}
-
+	
 	public void mouseClicked(MouseEvent arg0) {
-		if(arg0.getButton()==arg0.BUTTON3)
+		for(int i=0;i<cal.buttons.size();i++)
 		{
-			//System.out.println("dziala :D");
-			 PopUpCalendar menu = new PopUpCalendar();
-		     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
+			if(arg0.getSource()==cal.buttons.get(i) && cal.buttons.get(i).getBackground()==Color.blue)
+			{
+				if(arg0.getButton()==arg0.BUTTON3)
+	{
+		 //System.out.println("Popupkolor");
+		 PopUpCalendar menu = new PopUpCalendar();
+	     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
+	}
+			}
 		}
 		
 	}
