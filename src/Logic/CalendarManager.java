@@ -87,13 +87,15 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 		//JOptionPane.showMessageDialog(null, "My");
 		if(cal.app.alertsChecked == false)
 			checkAlarm();
-		
+		//cal.refreshCalendar();
 	}
 
 	public void mouseExited(MouseEvent arg0) {
 		//JOptionPane.showMessageDialog(null, "My");
+		
 		if(cal.app.alertsChecked == false)
 			checkAlarm();
+		//cal.refreshCalendar();
 		
 	}
 

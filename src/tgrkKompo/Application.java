@@ -47,26 +47,20 @@ public class Application extends JApplet implements KeyListener{
 	}
 
 	public void keyPressed(KeyEvent arg0) {
-		if(arg0.getKeyChar()==110);
+		if(arg0.getKeyCode()==KeyEvent.VK_N);
 		{
 			System.out.println("Add task");
 			mainPane.setSelectedIndex(2); //add task
 		}
-		if(arg0.getKeyCode()==KeyEvent.VK_C);
-		{
-			System.out.println("Calendar");
-			mainPane.setSelectedIndex(1); //add task
-		}
+	
 	}
 
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+
 	}
 		
 }
