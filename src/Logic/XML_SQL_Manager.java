@@ -199,4 +199,41 @@ public class XML_SQL_Manager {
 
 		return ret;
 	}
+
+	public Object[][] findEventsBy(String selectedChoice, String name) {
+		connectToDatabase();
+		ArrayList<Event> events = new ArrayList<Event>();
+		
+		try {//LIKE CONCAT('%', keyword, '%')
+		    rs = stmt.executeQuery("SELECT * FROM events where " + selectedChoice + " like '%" + name + "%';");
+		    while (rs.next()) {
+		        String n = rs.getString("name");
+		        String d = rs.getString("description");
+		        String p = rs.getString("place");
+		        Date evdat = (Date)rs.getDate("eventDate");
+		        Date evrem = (Date)rs.getDate("eventReminderDate");
+		        
+		        Event event = new Event(n,d,p,evdat,evrem);
+		        events.add(event);
+		    }
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
+		
+		Object[][] ret = new Object[events.size()][5];
+
+		
+		for(int i = 0; i < events.size(); i++)
+		{
+		
+			ret[i][0] = events.get(i).name;
+			ret[i][1] = events.get(i).description;
+			ret[i][2] = events.get(i).place;
+			ret[i][3] = events.get(i).eventDate.toString();
+			ret[i][4] = events.get(i).eventReminderDate.toString();
+		}
+
+
+		return ret;
+	}
 }

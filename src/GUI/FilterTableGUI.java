@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 
@@ -21,7 +22,7 @@ public class FilterTableGUI extends JPanel{
 
 	public JTable filterTable;
 	JScrollPane js;
-	JComboBox choise= new JComboBox();
+	public JComboBox choise= new JComboBox();
 	JLabel filter= new JLabel("Sort By: ");
 	XML_SQL_Manager ser;
 	//EditTable e1;
@@ -29,25 +30,27 @@ public class FilterTableGUI extends JPanel{
 	
 	FilterTableManager filtermanager;
 	public JTextField filterString= new JTextField(35);
+	public String selectedChoice;
 	
 	public FilterTableGUI(XML_SQL_Manager ser)
 	{
 		
 				super();
-				
-				//filterString.addKeyListener((KeyListener) new FilterTableManager(ser, this));
+				selectedChoice = "Name";
+				filterString.addKeyListener((KeyListener) new FilterTableManager(ser, this));
 				add(filter);
 				choise.addItem("Name");
 				choise.addItem("Description");
 				choise.addItem("Place");
 				choise.addItem("Date");
 				choise.addItem("Alarm");
+				choise.addItemListener((ItemListener) new FilterTableManager(ser, this));
 				filtermanager = new FilterTableManager(ser, this);
 				model = null;
 				filterTable = new JTable(model);
 				js=new JScrollPane(filterTable);
-				//add(filterString);
 				add(choise);
+				add(filterString);
 				add(js);
 				//e1.eventsTable = this;
 				this.ser = ser;
@@ -56,7 +59,7 @@ public class FilterTableGUI extends JPanel{
 	public void updateData(String name) {
 		//js.removeAll();
 		//filterTable.removeAll();
-		model = new DefaultTableModel(ser.findEventsByName(name), new DataRepository().getColumnsTable());
+		model = new DefaultTableModel(ser.findEventsBy(selectedChoice,name), new DataRepository().getColumnsTable());
 		filterTable.setModel(model);
 		//js = new JScrollPane(filterTable);
 		//add(js);

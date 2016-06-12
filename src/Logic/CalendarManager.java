@@ -81,12 +81,12 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
-		JOptionPane.showMessageDialog(null, "My");
+		//JOptionPane.showMessageDialog(null, "My");
 		
 	}
 
 	public void mouseExited(MouseEvent arg0) {
-		JOptionPane.showMessageDialog(null, "My");
+		//JOptionPane.showMessageDialog(null, "My");
 		
 	}
 
