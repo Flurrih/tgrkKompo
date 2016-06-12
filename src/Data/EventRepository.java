@@ -1,10 +1,11 @@
 package Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import tgrkKompo.Event;
 
-public class EventRepository {
+public class EventRepository implements Serializable{
 
 	public ArrayList<Event> eventList = new ArrayList<Event>();
 	

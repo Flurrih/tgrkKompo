@@ -1,5 +1,9 @@
 package Logic;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,6 +12,13 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.thoughtworks.xstream.XStream;
+
 import java.sql.Timestamp;
 
 import Data.EventRepository;
@@ -29,6 +40,7 @@ public class XML_SQL_Manager {
 	public XML_SQL_Manager(EventRepository repo)
 	{
 		this.repo = repo;
+		connectToDatabase();
 	}
 	
 	public static void addEvent(Event event)
@@ -69,7 +81,7 @@ public class XML_SQL_Manager {
 	
 	private static void addEventSQL(Event ev)
 	{
-		connectToDatabase();
+		//connectToDatabase();
 		try {
 			//connectToDatabase();
 			
@@ -85,12 +97,13 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
+		serializeXML();
 
 	}
 	
 	public static ArrayList<Event> getAllEventsSQL()
 	{	
-		connectToDatabase();
+		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {
@@ -150,6 +163,7 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
+		serializeXML();
 	}
 	public static void deleteTaskSQL(Event obj)
 	{
@@ -160,11 +174,12 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
+		serializeXML();
 	}
 	
 	public static Object[][] findEventsByName(String name)
 	{
-		connectToDatabase();
+		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {//LIKE CONCAT('%', keyword, '%')
@@ -201,7 +216,7 @@ public class XML_SQL_Manager {
 	}
 
 	public Object[][] findEventsBy(String selectedChoice, String name) {
-		connectToDatabase();
+		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {
@@ -239,7 +254,7 @@ public class XML_SQL_Manager {
 	
 	public static ArrayList<Event> getTodaysAlarmsEventsSQL(String date)
 	{	
-		connectToDatabase();
+		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {
@@ -260,6 +275,38 @@ public class XML_SQL_Manager {
 		
 
 		
+		return events;
+	}
+	
+	public static void serializeXML()
+	{
+      	try 
+        {
+            XStream xstream = new XStream();
+            PrintWriter writer = new PrintWriter(new File("xmltest.xml"));
+            writer.print(xstream.toXML((ArrayList<Event>)repo.eventList));
+           writer.close();
+        }
+      	catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        }
+	}
+	
+	public static ArrayList<Event> deserializeXML()
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		try
+        { 	
+        	XStream xStream = new XStream();
+        	events = (ArrayList<Event>) xStream.fromXML(new FileInputStream("xmltest.xml"));
+        }
+   
+        catch (FileNotFoundException ex)
+        {
+        	ex.printStackTrace();
+        }  
+
 		return events;
 	}
 	
