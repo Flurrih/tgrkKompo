@@ -52,6 +52,7 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 			{
 				System.out.println("Dziala");
 				Date tmp= new Date(cal.year.getSelectedIndex()+80,cal.month.getSelectedIndex(),i+1);
+				cal.app.addev.chose.setDate(tmp);
 				cal.app.selectTab(1); 
 				
 			}
@@ -66,11 +67,11 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 			if(arg0.getSource()==cal.buttons.get(i) && cal.buttons.get(i).getBackground()==Color.blue)
 			{
 				if(arg0.getButton()==arg0.BUTTON3)
-	{
-		 Date tmp= new Date(cal.year.getSelectedIndex()+80,cal.month.getSelectedIndex(),i+1);
-		 PopUpCalendar menu = new PopUpCalendar(tmp);
-	     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
-	}
+				{
+					 Date tmp= new Date(cal.year.getSelectedIndex()+80,cal.month.getSelectedIndex(),i+1);
+					 PopUpCalendar menu = new PopUpCalendar(tmp);
+				     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
+				}
 			}
 		}
 		

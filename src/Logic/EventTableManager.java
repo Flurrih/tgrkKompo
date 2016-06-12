@@ -1,11 +1,16 @@
 package Logic;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Date;
 
 import GUI.EventTableGUI;
+import tgrkKompo.Event;
 
-public class EventTableManager implements MouseListener {
+public class EventTableManager implements MouseListener{
 
 	XML_SQL_Manager ser;
 	public EventTableGUI gui;
@@ -21,7 +26,6 @@ public class EventTableManager implements MouseListener {
 		if(arg0.getButton()==arg0.BUTTON3)
 		{
 			clickedRecord = gui.table.rowAtPoint(arg0.getPoint());
-			//System.out.println("dziala :D");
 			 PopUpEventTable menu = new PopUpEventTable(ser, this);
 		     menu.show(arg0.getComponent(), arg0.getX(), arg0.getY());
 		}
@@ -47,7 +51,22 @@ public class EventTableManager implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+
+	public void deleteOldEvents()
+	{
+		ArrayList<Event> events = ser.getAllEventsSQL();
+		Date date = new Date();
+		date.setDate(date.getDate()-1);
+		for(int i = 0; i < events.size(); i++)
+		{
+			if(events.get(i).eventDate.before(date))
+			{
+				ser.deleteTaskSQL(events.get(i));
+				gui.updateData();
+				gui.updateUI();
+			}
+		}
+	}
 
 }

@@ -38,7 +38,7 @@ public class AddEventGUI extends JPanel {
 	
 	//data
 	JLabel data= new JLabel("Data:              ");
-	JDateChooser chose= new JDateChooser();
+	public JDateChooser chose= new JDateChooser();
 	
 	//alarm
 	JLabel alarm= new JLabel("Alarm:            ");
@@ -89,5 +89,7 @@ public class AddEventGUI extends JPanel {
 		//DateFormat.getInstance().format(d1)
 		return new Event(nameT.getText(), descriptionT.getText(), placeT.getText(), d1, d2);
 	}
+	
+	
 	
 }

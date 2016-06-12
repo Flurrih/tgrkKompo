@@ -14,6 +14,17 @@ public class DataRepository {
     private String months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     private String actualmonth=months[date.getMonth()];
     
+	private Object[] columnNames = {"Event",
+	        "Description",
+	        "Place",
+	        "Event Date",
+	        "Alarm Date",
+	       };
+
+    public Object[] getColumnsTable()
+    {
+    	return columnNames;
+    }
     public Date getDate()
     {
     	return date;
