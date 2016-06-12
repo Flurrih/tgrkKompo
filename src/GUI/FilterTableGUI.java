@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -19,7 +21,8 @@ public class FilterTableGUI extends JPanel{
 
 	public JTable filterTable;
 	JScrollPane js;
-
+	JComboBox choise= new JComboBox();
+	JLabel filter= new JLabel("Sort By: ");
 	XML_SQL_Manager ser;
 	//EditTable e1;
 	DefaultTableModel model ;
@@ -31,12 +34,20 @@ public class FilterTableGUI extends JPanel{
 	{
 		
 				super();
-				filterString.addKeyListener((KeyListener) new FilterTableManager(ser, this));
+				
+				//filterString.addKeyListener((KeyListener) new FilterTableManager(ser, this));
+				add(filter);
+				choise.addItem("Name");
+				choise.addItem("Description");
+				choise.addItem("Place");
+				choise.addItem("Date");
+				choise.addItem("Alarm");
 				filtermanager = new FilterTableManager(ser, this);
 				model = null;
 				filterTable = new JTable(model);
 				js=new JScrollPane(filterTable);
-				add(filterString);
+				//add(filterString);
+				add(choise);
 				add(js);
 				//e1.eventsTable = this;
 				this.ser = ser;
