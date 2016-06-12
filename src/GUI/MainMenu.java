@@ -19,6 +19,7 @@ public class MainMenu extends JPanel implements ActionListener {
 	JButton table= new JButton("Table");
 	JButton filter= new JButton("Search Event");
 	JButton about= new JButton("About");
+	JButton cfg= new JButton("Config");
 	Application app;
 	JLabel best=new JLabel("       TGRK Best Organiser");
 public MainMenu(Application app){
@@ -42,7 +43,8 @@ public MainMenu(Application app){
 	filter.addActionListener(this);
 	add(about);
 	about.addActionListener(this);
-
+	add(cfg);
+	cfg.addActionListener(this);
 }
 public void actionPerformed(ActionEvent arg0) {
 	if(arg0.getSource()==cal)
@@ -68,7 +70,12 @@ public void actionPerformed(ActionEvent arg0) {
 	{
 		app.selectTab(5);
 	}
-	
+	if(arg0.getSource()==cfg)
+	{
+		//System.out.println("Dziala");
+		FrameCfg asd = new FrameCfg();
+		asd.setVisible(true);
+	}
 }
 	
 }

@@ -1,5 +1,8 @@
 package tgrkKompo;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -9,7 +12,7 @@ import Data.EventRepository;
 import GUI.*;
 import Logic.XML_SQL_Manager;
 
-public class Application extends JApplet{
+public class Application extends JApplet implements KeyListener{
 	
 	public JTabbedPane mainPane = new JTabbedPane();
 	EventRepository evRepo = new EventRepository();
@@ -32,7 +35,7 @@ public class Application extends JApplet{
 		mainPane.add("Events", evtab);
 		mainPane.add("Filter", filter);
 		mainPane.add("About", new AboutGUI());
-		
+		mainPane.addKeyListener(this);
 		//mainPane.add("Week 9", new Week9());
 		add(mainPane);
 	}
@@ -41,6 +44,29 @@ public class Application extends JApplet{
 	{
 		//System.out.println("dffsdf");
 		mainPane.setSelectedIndex(i);
+	}
+
+	public void keyPressed(KeyEvent arg0) {
+		if(arg0.getKeyChar()==110);
+		{
+			System.out.println("Add task");
+			mainPane.setSelectedIndex(2); //add task
+		}
+		if(arg0.getKeyCode()==KeyEvent.VK_C);
+		{
+			System.out.println("Calendar");
+			mainPane.setSelectedIndex(1); //add task
+		}
+	}
+
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 		
 }

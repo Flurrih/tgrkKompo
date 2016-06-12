@@ -14,7 +14,7 @@ import javax.swing.JApplet;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
-public class Week9 extends JPanel {
+public class Week9 extends Applet {
 	
 	
 		
@@ -26,7 +26,7 @@ public class Week9 extends JPanel {
 		
 		public void paint(Graphics g)
 		{
-			
+			removeAll();
 			String tab[]=new String[3];
 			tab[0]="Times New Roman";
 			tab[1]="Arial";
@@ -138,6 +138,7 @@ public class Week9 extends JPanel {
 		
 		public Week9(){	
 		removeAll();
+		
 		checkboxgroup1 = new CheckboxGroup();
 		
 		checkbox1 = new Checkbox("18pt", false, checkboxgroup1);
