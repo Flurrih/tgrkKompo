@@ -1,6 +1,7 @@
 package tgrkKompo;
 
 import javax.swing.JApplet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
@@ -25,12 +26,13 @@ public class Application extends JApplet{
 		evtab =  new EventTableGUI(ser);
 		filter = new FilterTableGUI(ser);
 		setSize(500,500);
+		
 		mainPane.add("Calendar", cale);
 		mainPane.add("Add Task", addev);
 		mainPane.add("Events", evtab);
 		mainPane.add("Filter", filter);
 		mainPane.add("About", new AboutGUI());
-		mainPane.add("Week 9", new Week9());
+		//mainPane.add("Week 9", new Week9());
 		add(mainPane);
 	}
 	
