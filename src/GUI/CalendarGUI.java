@@ -41,6 +41,7 @@ public class CalendarGUI extends JPanel  {
     
     public CalendarGUI(Application app, EventRepository evRepo)
     {
+    	
     	this.evRepo = evRepo;
     	this.app = app;
         for(int i=0;i< data.getMonths().length;i++)
