@@ -1,10 +1,15 @@
 package GUI;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -21,20 +26,29 @@ public class EventTableGUI extends JPanel{
 	public JTable table;
 	
 	JScrollPane js;
-
+	JComboBox choise=new JComboBox();
 	XML_SQL_Manager ser;
 	//EditTable e1;
 	DefaultTableModel model ;
 	
 	EventTableManager evtab;
-	
+	Object[][] tmp;
 	public EventTableGUI(XML_SQL_Manager ser)
 	{
 		
 				super();
-				//this.e1=edit;
+				//add(new JLabel("Sort By: "));
+				//choise.addItem("Name ");
+				//choise.addItem("Description ");
+				//choise.addItem("Place");
+				//choise.addItem("Data");
+				//choise.addItem("Alarm");
+				///add(choise);
+				///choise.addActionListener(this);
+				tmp=ser.getEventsArray();
+				
 				evtab = new EventTableManager(ser, this);
-				model = new DefaultTableModel(ser.getEventsArray(), new DataRepository().getColumnsTable());
+				model = new DefaultTableModel(tmp, new DataRepository().getColumnsTable());
 				table = new JTable(model);
 				js=new JScrollPane(table);
 				add(js);
@@ -74,5 +88,7 @@ public class EventTableGUI extends JPanel{
 				model.getValueAt(clickedRecord, 0) , model.getValueAt(clickedRecord, 0) };
 		return obj;
 	}
+
+	
 	
 }

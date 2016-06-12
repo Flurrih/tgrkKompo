@@ -22,11 +22,11 @@ public class FrameShowTask extends JFrame {
 	DefaultTableModel model ;
 	JTable table;
 	JScrollPane js;
-	static Object[] columnNames = {"Zdarzenie",
-        "Opis",
-        "Miejsce",
+	static Object[] columnNames = {"Event",
+        "Description",
+        "Place",
         "Data",
-        "Data2",
+        "Alarm",
        };
 	EventRepository evt=new EventRepository();
 	XML_SQL_Manager ser= new XML_SQL_Manager(evt);

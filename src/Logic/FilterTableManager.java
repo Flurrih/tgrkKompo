@@ -18,12 +18,12 @@ public class FilterTableManager implements KeyListener, ItemListener{
 
 
 
-	@Override
+	
 	public void keyPressed(KeyEvent arg0) {
 
 	}
 
-	@Override
+	
 	public void keyReleased(KeyEvent arg0) {
 		if(!(arg0.getKeyChar()==27||arg0.getKeyChar()==65535))//this section will execute only when user is editing the JTextField
         {
@@ -33,7 +33,7 @@ public class FilterTableManager implements KeyListener, ItemListener{
 		
 	}
 
-	@Override
+	
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
@@ -42,7 +42,7 @@ public class FilterTableManager implements KeyListener, ItemListener{
 
 
 
-	@Override
+	
 	public void itemStateChanged(ItemEvent arg0) {
 
 			if(gui.choise.getSelectedItem() == "Name")
