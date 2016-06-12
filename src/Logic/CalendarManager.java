@@ -11,6 +11,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import tgrkKompo.Application;
 
 import GUI.CalendarGUI;
@@ -58,7 +60,8 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 			}
 			
 		}
-		
+     	 
+
 	}
 	
 	public void mouseClicked(MouseEvent arg0) {
@@ -78,12 +81,12 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null, "My");
 		
 	}
 
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null, "My");
 		
 	}
 

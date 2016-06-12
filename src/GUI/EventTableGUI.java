@@ -53,6 +53,7 @@ public class EventTableGUI extends JPanel{
 		table.addMouseListener((MouseListener) new EventTableManager(ser, this));
 		//js=new JScrollPane(table);
 		//add(js);
+		
 	}
 
 	/*public void addNewEvent(Event event) {

@@ -1,6 +1,7 @@
 package tgrkKompo;
 
 import javax.swing.JApplet;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import Data.EventRepository;
@@ -36,4 +37,5 @@ public class Application extends JApplet{
 		//System.out.println("dffsdf");
 		mainPane.setSelectedIndex(i);
 	}
+		
 }

@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 
+import javax.swing.JOptionPane;
+
 import Data.EventRepository;
 import GUI.AddEventGUI;
 import Logic.XML_SQL_Manager;

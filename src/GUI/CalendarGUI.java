@@ -15,6 +15,7 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Data.DataRepository;
@@ -74,7 +75,7 @@ public class CalendarGUI extends JPanel  {
     }
         public static void main(String args[])
         {
-        	CalendarGUI frame = new CalendarGUI(app,evRepo);
+                	CalendarGUI frame = new CalendarGUI(app,evRepo);	
         }
         
         
@@ -162,8 +163,7 @@ public class CalendarGUI extends JPanel  {
              
              panel2.validate();
           	 
-          	 
-        	
+
         }
         
         public void refreshCalendar()
