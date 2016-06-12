@@ -9,23 +9,26 @@ import java.awt.event.ItemListener;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 import tgrkKompo.Application;
-
+import tgrkKompo.Event;
 import GUI.CalendarGUI;
 
 
 public class CalendarManager implements ItemListener,ActionListener,MouseListener{
 
 	CalendarGUI cal;
-
+	ArrayList<Event> alerts;
 	
 	public CalendarManager(CalendarGUI cal)
 	{
 		this.cal=cal;
+		alerts = cal.app.ser.getTodaysAlarmsEventsSQL(DateFormat.getDateInstance().format(new Date()));
 	}
 	
 	public void itemStateChanged(ItemEvent e) {
@@ -82,11 +85,15 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 
 	public void mouseEntered(MouseEvent arg0) {
 		//JOptionPane.showMessageDialog(null, "My");
+		if(cal.app.alertsChecked == false)
+			checkAlarm();
 		
 	}
 
 	public void mouseExited(MouseEvent arg0) {
 		//JOptionPane.showMessageDialog(null, "My");
+		if(cal.app.alertsChecked == false)
+			checkAlarm();
 		
 	}
 
@@ -98,6 +105,23 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void checkAlarm()
+	{
+		System.out.println(alerts.size());
+		cal.app.alertsChecked = true;
+		if(alerts.size() > 0)
+		{
+			for(int i = 0; i < alerts.size(); i++)
+			{
+				if(alerts.get(i).canAlarm() == true)
+				{
+					JOptionPane.showMessageDialog(null, "Todays alarm: " + alerts.get(i).toString());
+					alerts.get(i).disableAlarm();
+				}
+			}
+		}
 	}
 
 }

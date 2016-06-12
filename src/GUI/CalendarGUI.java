@@ -26,7 +26,7 @@ import tgrkKompo.Application;
 public class CalendarGUI extends JPanel  {
 
 	public DataRepository data = new DataRepository();
-	static EventRepository evRepo;
+	public static EventRepository evRepo;
 	
 	public JPanel panel = new JPanel();
 	public JPanel panel2 = new JPanel();
@@ -75,7 +75,7 @@ public class CalendarGUI extends JPanel  {
     }
         public static void main(String args[])
         {
-                	CalendarGUI frame = new CalendarGUI(app,evRepo);	
+                	CalendarGUI frame = new CalendarGUI(app,evRepo);
         }
         
         

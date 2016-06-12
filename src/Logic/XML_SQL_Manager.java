@@ -204,7 +204,7 @@ public class XML_SQL_Manager {
 		connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
-		try {//LIKE CONCAT('%', keyword, '%')
+		try {
 		    rs = stmt.executeQuery("SELECT * FROM events where " + selectedChoice + " like '%" + name + "%';");
 		    while (rs.next()) {
 		        String n = rs.getString("name");
@@ -236,4 +236,32 @@ public class XML_SQL_Manager {
 
 		return ret;
 	}
+	
+	public static ArrayList<Event> getTodaysAlarmsEventsSQL(String date)
+	{	
+		connectToDatabase();
+		ArrayList<Event> events = new ArrayList<Event>();
+		
+		try {
+		    rs = stmt.executeQuery("SELECT * FROM events where eventReminderDate = '" + date + "'" );
+		    while (rs.next()) {
+		        String n = rs.getString("name");
+		        String d = rs.getString("description");
+		        String p = rs.getString("place");
+		        Date evdat = (Date)rs.getDate("eventDate");
+		        Date evrem = (Date)rs.getDate("eventReminderDate");
+		        
+		        Event event = new Event(n,d,p,evdat,evrem);
+		        events.add(event);
+		    }
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
+		
+
+		
+		return events;
+	}
+	
+	
 }

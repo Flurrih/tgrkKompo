@@ -10,9 +10,11 @@ public class Event {
 	public String place;
 	public Date eventDate;
 	public Date eventReminderDate;
+	private boolean canAlarm;
 	
 	public Event(String name,String desc,String place,Date eventDate, Date eventReminderDate)
 	{
+		canAlarm = true;
 		this.name = name;
 		this.description = desc;
 		this.place = place;
@@ -27,4 +29,12 @@ public class Event {
 				eventReminderDate.toString();
 	}
 
+	public void disableAlarm()
+	{
+		canAlarm = false;
+	}
+	public boolean canAlarm()
+	{
+		return canAlarm;
+	}
 }

@@ -17,6 +17,8 @@ public class Application extends JApplet{
 	public EventTableGUI evtab;
 	public AddEventGUI addev;
 	public FilterTableGUI filter;
+	public Boolean alertsChecked = false;
+	
 	
 	public void init(){
 		addev = new AddEventGUI(ser,cale);
