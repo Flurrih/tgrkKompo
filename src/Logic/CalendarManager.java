@@ -58,7 +58,7 @@ public class CalendarManager implements ItemListener,ActionListener,MouseListene
 				System.out.println("Dziala");
 				Date tmp= new Date(cal.year.getSelectedIndex()+80,cal.month.getSelectedIndex(),i+1);
 				cal.app.addev.chose.setDate(tmp);
-				cal.app.selectTab(1); 
+				cal.app.selectTab(2); 
 				
 			}
 			
