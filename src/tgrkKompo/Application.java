@@ -46,15 +46,33 @@ public class Application extends JApplet implements KeyListener{
 	
 	public void selectTab(int i)
 	{
-		//System.out.println("dffsdf");
 		mainPane.setSelectedIndex(i);
 	}
 
 	public void keyPressed(KeyEvent arg0) {
-		if(arg0.getKeyCode()==KeyEvent.VK_N);
+		if(arg0.getKeyCode() ==KeyEvent.VK_1)
 		{
-			//System.out.println("Add task");
-			mainPane.setSelectedIndex(2); //add task
+			mainPane.setSelectedIndex(0);
+		}
+		if(arg0.getKeyCode() ==KeyEvent.VK_2)
+		{
+			mainPane.setSelectedIndex(1);
+		}
+		if(arg0.getKeyCode() ==KeyEvent.VK_3)
+		{
+			mainPane.setSelectedIndex(2);
+		}
+		if(arg0.getKeyCode() ==KeyEvent.VK_4)
+		{
+			mainPane.setSelectedIndex(3);
+		}
+		if(arg0.getKeyCode() ==KeyEvent.VK_5)
+		{
+			mainPane.setSelectedIndex(4);
+		}
+		if(arg0.getKeyCode() ==KeyEvent.VK_6)
+		{
+			mainPane.setSelectedIndex(5);
 		}
 	
 	}
