@@ -10,7 +10,7 @@ import java.util.Date;
 import GUI.EventTableGUI;
 import tgrkKompo.Event;
 
-public class EventTableManager implements MouseListener{
+public class EventTableManager implements MouseListener, ActionListener{
 
 	XML_SQL_Manager ser;
 	public EventTableGUI gui;
@@ -67,6 +67,15 @@ public class EventTableManager implements MouseListener{
 				gui.updateUI();
 			}
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if(arg0.getSource() == gui.oldButton)
+		{
+			deleteOldEvents();
+		}
+		
 	}
 
 	

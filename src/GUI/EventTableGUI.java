@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,6 +31,7 @@ public class EventTableGUI extends JPanel{
 	XML_SQL_Manager ser;
 	//EditTable e1;
 	DefaultTableModel model ;
+	public JButton oldButton;
 	
 	EventTableManager evtab;
 	Object[][] tmp;
@@ -37,6 +39,7 @@ public class EventTableGUI extends JPanel{
 	{
 		
 				super();
+				oldButton = new JButton("oldButton");
 				//add(new JLabel("Sort By: "));
 				//choise.addItem("Name ");
 				//choise.addItem("Description ");
@@ -52,6 +55,9 @@ public class EventTableGUI extends JPanel{
 				table = new JTable(model);
 				js=new JScrollPane(table);
 				add(js);
+				oldButton.addActionListener((ActionListener) evtab);
+				add(oldButton);
+
 				//e1.eventsTable = this;
 				table.addMouseListener((MouseListener) evtab);
 				this.ser = ser;
@@ -84,8 +90,8 @@ public class EventTableGUI extends JPanel{
 	public Object[] getSelectedEvent(int clickedRecord)
 	{
 		System.out.println(model.getValueAt(clickedRecord, 0));
-		Object[] obj = {model.getValueAt(clickedRecord, 0), model.getValueAt(clickedRecord, 0) , 
-				model.getValueAt(clickedRecord, 0) , model.getValueAt(clickedRecord, 0) };
+		Object[] obj = {model.getValueAt(clickedRecord, 0), model.getValueAt(clickedRecord, 1) , 
+				model.getValueAt(clickedRecord, 2) , model.getValueAt(clickedRecord, 3) };
 		return obj;
 	}
 

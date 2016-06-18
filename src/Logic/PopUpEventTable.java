@@ -6,10 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import GUI.EditEventGUI;
+
 public class PopUpEventTable extends JPopupMenu implements ActionListener{
 
 	JMenuItem deletetask;
-	 JMenuItem oldtasks;
+	 JMenuItem editTask;
 	private XML_SQL_Manager ser;
 	private EventTableManager evtab;
 	
@@ -20,9 +22,9 @@ public class PopUpEventTable extends JPopupMenu implements ActionListener{
 		 deletetask=new JMenuItem("Delete task");
 	     add(deletetask);
 	     deletetask.addActionListener(this);
-	     oldtasks=new JMenuItem("Remove old tasks");
-	     add(oldtasks);
-	     oldtasks.addActionListener(this);
+	     editTask=new JMenuItem("Edit task");
+	     add(editTask);
+	     editTask.addActionListener(this);
 	 }
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -36,10 +38,10 @@ public class PopUpEventTable extends JPopupMenu implements ActionListener{
 			evtab.gui.repaint();
 		}
 		
-		if(arg0.getSource()==oldtasks)
+		if(arg0.getSource()==editTask)
 		{
-			System.out.println("test");
-			evtab.deleteOldEvents();
+			EditEventGUI editev = new EditEventGUI(evtab.gui.getSelectedEvent(evtab.clickedRecord));
+			editev.setVisible(true);
 		}
 	}
 
