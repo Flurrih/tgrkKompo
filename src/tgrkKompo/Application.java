@@ -40,7 +40,6 @@ public class Application extends JApplet implements KeyListener{
 		mainPane.add("About", new AboutGUI());
 		mainPane.addKeyListener(this);
 		mainPane.addMouseListener(new CalendarManager(cale));
-		//mainPane.add("Week 9", new Week9());
 		add(mainPane);
 	}
 	
