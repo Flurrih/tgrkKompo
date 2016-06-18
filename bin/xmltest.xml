@@ -31,12 +31,4 @@
     <eventReminderDate class="sql-date">2016-06-22</eventReminderDate>
     <canAlarm>true</canAlarm>
   </tgrkKompo.Event>
-  <tgrkKompo.Event>
-    <name>vewrverv</name>
-    <description>beb</description>
-    <place>vverv</place>
-    <eventDate class="sql-date">2016-06-19</eventDate>
-    <eventReminderDate class="sql-date">2016-06-17</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
 </list>

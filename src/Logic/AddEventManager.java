@@ -26,7 +26,7 @@ public class AddEventManager implements ActionListener{
 		if(arg0.getSource() == gui.addButton)	
 		{
 			System.out.println(gui.getEvent().toString());
-			XML_SQL_Manager.addEvent(gui.getEvent());
+			XML_SQL_Manager.addEventSQL(gui.getEvent());
 			gui.cal.refreshCalendar();
 			gui.cal.app.evtab.updateData();
 			gui.cal.app.evtab.updateUI();

@@ -25,17 +25,14 @@ import Data.EventRepository;
 import tgrkKompo.Event;
 
 public class XML_SQL_Manager {
-	static int choice = 1;
+
 	
 	static EventRepository repo;
 	public static Connection con;
 	public static Statement stmt;
 	public static ResultSet rs;
 	
-	public void setChoice(int i)
-	{
-		choice = i;
-	}
+
 	
 	public XML_SQL_Manager(EventRepository repo)
 	{
@@ -43,31 +40,7 @@ public class XML_SQL_Manager {
 		connectToDatabase();
 	}
 	
-	public static void addEvent(Event event)
-	{
-		if(choice == 1)// SQL default
-		{ 
-			addEventSQL(event);
-		}
-		else if(choice == 2) // XML
-		{
-			//XmlManager.addEvent(event);
-		}
-		update();
-	}
-	
-	public static void update()
-	{
-		if(choice == 1)// SQL default
-		{ 
-			//XmlManager.updateData(repo.getEvents());
-		}
-		else if(choice == 2) // XML
-		{
-			//SQLManager.updateData(repo.getEvents());
-		}
-	}
-	
+
 	private static void connectToDatabase()
 	{
 	    try {
@@ -79,7 +52,7 @@ public class XML_SQL_Manager {
 		}
 	}
 	
-	private static void addEventSQL(Event ev)
+	public static void addEventSQL(Event ev)
 	{
 		//connectToDatabase();
 		try {
@@ -97,7 +70,6 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
-		serializeXML();
 
 	}
 	
@@ -129,6 +101,7 @@ public class XML_SQL_Manager {
 	
 	public static void editEvent(Object[] obj)
 	{
+
 		try {
 			stmt.executeUpdate("update events set description = '" + obj[1] + "', place = '" + obj[2] + "', eventDate = '" + obj[3] + "', eventReminderDate = '" + obj[4]
 					+ "' where name = '" + obj[0] + "';");
@@ -172,7 +145,6 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
-		serializeXML();
 	}
 	public static void deleteTaskSQL(Event obj)
 	{
@@ -183,7 +155,16 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
-		serializeXML();
+	}
+	
+	public static void truncateDB()
+	{
+		try {
+			stmt.executeUpdate("truncate table events");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static Object[][] findEventsByName(String name)
@@ -302,6 +283,7 @@ public class XML_SQL_Manager {
         }
 	}
 	
+	
 	public static ArrayList<Event> deserializeXML()
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -319,5 +301,15 @@ public class XML_SQL_Manager {
 		return events;
 	}
 	
-	
+	public static void updateFromXML()
+	{
+		ArrayList<Event> events = deserializeXML();
+		truncateDB();
+		for(int i = 0; i < events.size(); i++ )
+		{
+			System.out.println(events.get(i).toString());
+			addEventSQL(events.get(i));
+		}
+		updateRepoSQL();
+	}
 }
