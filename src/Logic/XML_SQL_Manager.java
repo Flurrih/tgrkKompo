@@ -127,7 +127,16 @@ public class XML_SQL_Manager {
 		return events;
 	}
 	
-
+	public static void editEvent(Object[] obj)
+	{
+		try {
+			stmt.executeUpdate("update events set description = '" + obj[1] + "', place = '" + obj[2] + "', eventDate = '" + obj[3] + "', eventReminderDate = '" + obj[4]
+					+ "' where name = '" + obj[0] + "';");
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
+		updateRepoSQL();
+	}
 	
 	public Object[][] getEventsArray()
 	{

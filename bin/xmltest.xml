@@ -1,7 +1,7 @@
 <list>
   <tgrkKompo.Event>
     <name>bhrtbtrbrerer</name>
-    <description>brthbbdre</description>
+    <description>brth</description>
     <place>rtbrbb</place>
     <eventDate class="sql-date">2016-06-25</eventDate>
     <eventReminderDate class="sql-date">2016-06-24</eventReminderDate>
@@ -16,43 +16,11 @@
     <canAlarm>true</canAlarm>
   </tgrkKompo.Event>
   <tgrkKompo.Event>
-    <name>ewfef</name>
-    <description>gregrgg</description>
-    <place>wweqw</place>
-    <eventDate class="sql-date">2016-06-18</eventDate>
-    <eventReminderDate class="sql-date">2016-06-26</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
-  <tgrkKompo.Event>
-    <name>Nie</name>
-    <description>fef</description>
-    <place>ferger</place>
-    <eventDate class="sql-date">2016-06-18</eventDate>
-    <eventReminderDate class="sql-date">2016-06-17</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
-  <tgrkKompo.Event>
-    <name>r4t4</name>
-    <description>gerg</description>
-    <place>greg</place>
-    <eventDate class="sql-date">2016-06-18</eventDate>
-    <eventReminderDate class="sql-date">2016-06-24</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
-  <tgrkKompo.Event>
     <name>rtbtrbrtb</name>
     <description>rtgthtr</description>
     <place>efwgerg</place>
     <eventDate class="sql-date">2016-06-26</eventDate>
     <eventReminderDate class="sql-date">2016-06-13</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
-  <tgrkKompo.Event>
-    <name>Tak</name>
-    <description>fef</description>
-    <place>ferger</place>
-    <eventDate class="sql-date">2016-06-18</eventDate>
-    <eventReminderDate class="sql-date">2016-06-17</eventReminderDate>
     <canAlarm>true</canAlarm>
   </tgrkKompo.Event>
   <tgrkKompo.Event>
@@ -64,24 +32,8 @@
     <canAlarm>true</canAlarm>
   </tgrkKompo.Event>
   <tgrkKompo.Event>
-    <name>Test</name>
-    <description>fef</description>
-    <place>ferger</place>
-    <eventDate class="sql-date">2016-06-18</eventDate>
-    <eventReminderDate class="sql-date">2016-06-17</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
-  <tgrkKompo.Event>
-    <name>ververv</name>
-    <description>rberb</description>
-    <place>ferf</place>
-    <eventDate class="sql-date">2016-06-19</eventDate>
-    <eventReminderDate class="sql-date">2016-06-17</eventReminderDate>
-    <canAlarm>true</canAlarm>
-  </tgrkKompo.Event>
-  <tgrkKompo.Event>
     <name>vewrverv</name>
-    <description>bewbqerbebqerqe</description>
+    <description>beb</description>
     <place>vverv</place>
     <eventDate class="sql-date">2016-06-19</eventDate>
     <eventReminderDate class="sql-date">2016-06-17</eventReminderDate>

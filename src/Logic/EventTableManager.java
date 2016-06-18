@@ -15,7 +15,7 @@ public class EventTableManager implements MouseListener, ActionListener{
 	XML_SQL_Manager ser;
 	public EventTableGUI gui;
 
-	int clickedRecord = -1;
+	public int clickedRecord = -1;
 	
 	public EventTableManager(XML_SQL_Manager ser, EventTableGUI gui) {
 		this.ser = ser;

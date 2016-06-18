@@ -18,27 +18,38 @@ import com.toedter.calendar.JDateChooser;
 
 import Logic.EditEventManager;
 import Logic.EventTableManager;
+import Logic.XML_SQL_Manager;
 
 public class EditEventGUI extends JFrame{
 	JLabel name1= new JLabel("Name: ");
 	JLabel description1=new JLabel("Description: ");
 	JLabel place1=new JLabel("Place: ");
-	JLabel date1=new JLabel("Date: ");
-	TextField name;
-	TextField description;
-	TextField place;
+	JLabel date1=new JLabel("Event Date: ");
+	JLabel dateA=new JLabel("Alarm Date: ");
+	public TextField name;
+	public TextField description;
+	public TextField place;
 	JComboBox day;
 	JComboBox month;
 	JComboBox year;
-	JDateChooser chose;
-	JButton edittask;
+	public JDateChooser chose;
+	
+	JComboBox dayA;
+	JComboBox monthA;
+	JComboBox yearA;
+	public JDateChooser choseA;
+	
+	public JButton edittask;
 	JApplet app;
-	EventTableManager eventTable;
-	Object[] selectedEvent;
-	public EditEventGUI(Object[] object){
+	public EventTableManager eventTable;
+	public Object[] selectedEvent;
+	public XML_SQL_Manager ser;
+	public EditEventGUI(XML_SQL_Manager ser,EventTableManager eventTable){
 		
 		super();
-		selectedEvent = object;
+		this.eventTable = eventTable;
+		this.ser = ser;
+		selectedEvent = eventTable.gui.getSelectedEvent(eventTable.clickedRecord);
 	 	//this.eventsTable = eventsTable;
 		edittask=new JButton("Edit");
 		
@@ -48,7 +59,8 @@ public class EditEventGUI extends JFrame{
 		description=new TextField();
 		place= new TextField();
 		chose=new JDateChooser();
-		edittask.addActionListener((ActionListener) new EditEventManager());
+		choseA = new JDateChooser();
+		edittask.addActionListener((ActionListener) new EditEventManager(this));
 		
 			   
 		add(name1);
@@ -59,6 +71,8 @@ public class EditEventGUI extends JFrame{
 		add(place);
 		add(date1);
 		add(chose);
+		add(dateA);
+		add(choseA);
 		add(edittask);
 		setSize(400,600);
 		setVisible(false);
@@ -73,6 +87,7 @@ public class EditEventGUI extends JFrame{
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			try {
 				chose.setDate(df.parse((String) selectedEvent[3]));
+				choseA.setDate(df.parse((String) selectedEvent[4]));
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

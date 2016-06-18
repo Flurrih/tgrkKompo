@@ -91,7 +91,7 @@ public class EventTableGUI extends JPanel{
 	{
 		System.out.println(model.getValueAt(clickedRecord, 0));
 		Object[] obj = {model.getValueAt(clickedRecord, 0), model.getValueAt(clickedRecord, 1) , 
-				model.getValueAt(clickedRecord, 2) , model.getValueAt(clickedRecord, 3) };
+				model.getValueAt(clickedRecord, 2) , model.getValueAt(clickedRecord, 3), model.getValueAt(clickedRecord, 4) };
 		return obj;
 	}
 

@@ -40,7 +40,7 @@ public class PopUpEventTable extends JPopupMenu implements ActionListener{
 		
 		if(arg0.getSource()==editTask)
 		{
-			EditEventGUI editev = new EditEventGUI(evtab.gui.getSelectedEvent(evtab.clickedRecord));
+			EditEventGUI editev = new EditEventGUI(ser,evtab);
 			editev.setVisible(true);
 		}
 	}
