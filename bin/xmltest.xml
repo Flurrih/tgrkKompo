@@ -1,10 +1,18 @@
 <list>
   <tgrkKompo.Event>
-    <name>bhrtbtrbrerer</name>
-    <description>brth</description>
-    <place>rtbrbb</place>
+    <name>bdbfd</name>
+    <description>bdfbf</description>
+    <place>hddhdfhdfh</place>
     <eventDate class="sql-date">2016-06-25</eventDate>
-    <eventReminderDate class="sql-date">2016-06-24</eventReminderDate>
+    <eventReminderDate class="sql-date">2016-06-20</eventReminderDate>
+    <canAlarm>true</canAlarm>
+  </tgrkKompo.Event>
+  <tgrkKompo.Event>
+    <name>bdbfdkk</name>
+    <description>bdfbf</description>
+    <place>hddhdfhdfh</place>
+    <eventDate class="sql-date">2016-06-25</eventDate>
+    <eventReminderDate class="sql-date">2016-06-20</eventReminderDate>
     <canAlarm>true</canAlarm>
   </tgrkKompo.Event>
   <tgrkKompo.Event>

@@ -20,6 +20,8 @@ public class MainMenu extends JPanel implements ActionListener {
 	JButton filter= new JButton("Search Event");
 	JButton about= new JButton("About");
 	JButton cfg= new JButton("Config");
+	JButton loadXML= new JButton("loadXML");
+	JButton saveXML= new JButton("saveXML");
 	Application app;
 	JLabel best=new JLabel("       TGRK Best Organiser");
 public MainMenu(Application app){
@@ -45,6 +47,10 @@ public MainMenu(Application app){
 	about.addActionListener(this);
 	add(cfg);
 	cfg.addActionListener(this);
+	loadXML.addActionListener(this);
+	add(loadXML);
+	saveXML.addActionListener(this);
+	add(saveXML);
 }
 public void actionPerformed(ActionEvent arg0) {
 	if(arg0.getSource()==cal)
@@ -75,6 +81,16 @@ public void actionPerformed(ActionEvent arg0) {
 		//System.out.println("Dziala");
 		FrameCfg asd = new FrameCfg();
 		asd.setVisible(true);
+	}
+	if(arg0.getSource() == loadXML)
+	{
+		app.ser.updateFromXML();
+		app.evtab.updateData();
+		app.evtab.updateUI();
+	}
+	if(arg0.getSource() == saveXML)
+	{
+		app.ser.serializeXML();
 	}
 }
 	

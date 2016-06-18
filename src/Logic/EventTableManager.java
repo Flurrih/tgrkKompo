@@ -74,9 +74,6 @@ public class EventTableManager implements MouseListener, ActionListener{
 		if(arg0.getSource() == gui.oldButton)
 		{
 			deleteOldEvents();
-			/*ser.updateFromXML();
-			gui.updateData();
-			gui.updateUI();*/
 		}
 		
 	}
