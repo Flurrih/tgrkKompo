@@ -28,6 +28,11 @@ public class Event {
 				eventDate.toString() + " " + 
 				eventReminderDate.toString();
 	}
+	public String toStringAlarm()
+	{
+		return "\nName: " +name + " \nDescription: " + description + " \nPlace: " + place + " \nDate: " +
+				eventDate.toString();
+	}
 
 	public void disableAlarm()
 	{
