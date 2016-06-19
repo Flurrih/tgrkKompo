@@ -36,17 +36,17 @@ public class CalendarGUI extends JPanel  {
 	public static EventRepository evRepo;
 	
 	/**Panel dla miesiecy dni i przycisku Go Back*/
-	public JPanel panel = new JPanel();
+	private JPanel panel = new JPanel();
 	/**Panel dla przyciskow*/
 	public JPanel panel2 = new JPanel();
 	/**Lista wyboru miesiaca kalendarza*/
-    public JComboBox month = new JComboBox();
+	public JComboBox month = new JComboBox();
     /**Lista wyboru roku kalendarza*/
-    public JComboBox year = new JComboBox();
+	public JComboBox year = new JComboBox();
     /**Przycisk Go Back dzieki ktoremu wracamy do aktualenj daty*/
-    public JButton goBack= new JButton("Go Back");
+	public JButton goBack= new JButton("Go Back");
     /**Lista przechowujaca wszystkie przyciski w kalendarzu*/
-    public ArrayList<JButton> buttons= new ArrayList<JButton>();
+	public ArrayList<JButton> buttons= new ArrayList<JButton>();
     /**Obiekt daty*/
     public Date date; 
     /**Obiekt aplikacji g³ównej klasy skupiajacej wszystkie razem*/

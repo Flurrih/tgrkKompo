@@ -21,15 +21,15 @@ import Logic.XML_SQL_Manager;
 public class FrameShowTask extends JFrame {
 	
 	/**Obiekt daty*/
-	Date data;
+	private Date data;
 	/**Obiekt panelu do ktorego dodajemy elementu*/
-	JPanel panel;
+	private JPanel panel;
 	/**Model tabeli*/
-	DefaultTableModel model ;
+	private DefaultTableModel model ;
 	/**Tabela wydarzen*/
-	JTable table;
+	private JTable table;
 	/**Obiekt umozliwiajacy nam scrollowanie wydarzen*/
-	JScrollPane js;
+	private JScrollPane js;
 	/**Tablica nazw kolumn */
 	static Object[] columnNames = {"Event",
         "Description",
@@ -38,13 +38,13 @@ public class FrameShowTask extends JFrame {
         "Alarm",
        };
 	/**Obiekt repozytorium wydarzen dajacy nam  dostep do listy wydarzen*/
-	EventRepository evt=new EventRepository();
+	public EventRepository evt=new EventRepository();
 	/**Obiekt zajmujacy sie obslug¹ bazdy danych*/
-	XML_SQL_Manager ser= new XML_SQL_Manager(evt);
+	public XML_SQL_Manager ser= new XML_SQL_Manager(evt);
 	/**ArrayLista wszystkich wydarzen*/
-	ArrayList<Event> tmp=ser.getAllEventsSQL();
+	public ArrayList<Event> tmp=ser.getAllEventsSQL();
 	/**Tablica do konwersji z listy do tablicy*/
-	Object []rows=new Object[5];
+	public Object []rows=new Object[5];
 	
 	/**Konstruktor g³ówny odpowiedzialny za wyswietlenie elementów okna
 	 * @param date Obiekt aktualnej daty*/

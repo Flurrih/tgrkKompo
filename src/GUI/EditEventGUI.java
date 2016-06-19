@@ -25,15 +25,15 @@ import Logic.XML_SQL_Manager;
  * */
 public class EditEventGUI extends JFrame{
 	/** Etykieta Name wskazujaca na nazwe */
-	JLabel name1= new JLabel("Name: ");
+	private JLabel name1= new JLabel("Name: ");
 	/** Etykieta Description wskazujaca na opis */
-	JLabel description1=new JLabel("Description: ");
+	private JLabel description1=new JLabel("Description: ");
 	/** Etykieta Place wskazujaca na miejsce */
-	JLabel place1=new JLabel("Place: ");
+	private JLabel place1=new JLabel("Place: ");
 	/** Etykieta EventDate wskazujaca na date wydarzenia*/
-	JLabel date1=new JLabel("Event Date: ");
+	private JLabel date1=new JLabel("Event Date: ");
 	/** Etykieta EventAlarm wskazujaca na date alarmu*/
-	JLabel dateA=new JLabel("Alarm Date: ");
+	private JLabel dateA=new JLabel("Alarm Date: ");
 	/**Pole tekstowe nazwy wydarzenia*/
 	public TextField name;
 	/**Pole tekstowe opisu wydarzenia*/

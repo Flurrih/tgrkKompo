@@ -31,17 +31,17 @@ public class EventTableGUI extends JPanel{
 	/**Obiekt tabeli do ktorej dodajemy eventy*/
 	public JTable table;
 	/**Obiekt udostepniajacy nam scrollowanie*/
-	JScrollPane js;
+	private JScrollPane js;
 	/**Obiekt klasy odpowiedzialnej ze polaczenia z baza danych i operacje na niej*/
-	XML_SQL_Manager ser;
+	public XML_SQL_Manager ser;
 	/**Model tabeli*/
-	DefaultTableModel model ;
+	private DefaultTableModel model ;
 	/**Obiekt przycisku usuwajacy stare wydarzenia*/
 	public JButton oldButton;
 	/**Manager tabeli*/
-	EventTableManager evtab;
+	public EventTableManager evtab;
 	/**Tablica kwadratowa przechowujaca dane do wyswietlanie*/
-	Object[][] tmp;
+	public Object[][] tmp;
 	
 	/**Konstruktor g³ówny odpowiedzialny za dodawanie tabeli i danych do tabeli
 	 * @param ser obiekt udostepniajacy nam liste wydarzen*/

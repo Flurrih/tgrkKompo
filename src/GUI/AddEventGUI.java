@@ -35,34 +35,34 @@ import tgrkKompo.Event;
 public class AddEventGUI extends JPanel {
 	
 	/** Etykieta Name wskazujaca na nazwe */
-	JLabel name= new JLabel("Name:            ");
+	private JLabel name= new JLabel("Name:            ");
 	
 	/** Pole tekstowe. Miejsce na wpisanie nazwy*/
-	JTextField nameT= new JTextField(35);
+	private JTextField nameT= new JTextField(35);
 	
 	/** Etykieta Description wskazujaca na opis*/
-	JLabel description= new JLabel("Description: ");
+	private JLabel description= new JLabel("Description: ");
 	
 	/** Pole tekstowe. Miejsce na wpisanie opisu*/
-	JTextField descriptionT= new JTextField(35);
+	private JTextField descriptionT= new JTextField(35);
 	
 	/** Etykieta Place wskazujaca na miejsce*/
-	JLabel place= new JLabel("Place:            ");
+	private JLabel place= new JLabel("Place:            ");
 	
 	/** Pole tekstowe. Miejsce na wpisanie miejsca wydarzenia*/
-	JTextField placeT= new JTextField(35);
+	private JTextField placeT= new JTextField(35);
 	
 	/** Etykieta Data wskazujaca na date*/
-	JLabel data= new JLabel("Data:              ");
+	private JLabel data= new JLabel("Data:              ");
 	
 	/** Obiekt odpowiedzialny za wybór daty wydarzenia w panelu */
-	public JDateChooser chose= new JDateChooser();
+	public  JDateChooser chose= new JDateChooser();
 	
 	/** Etykieta alarm wskazujaca na alarm*/
-	JLabel alarm= new JLabel("Alarm:            ");
+	private JLabel alarm= new JLabel("Alarm:            ");
 	
 	/** Obiekt odpowiedzialny za wybór daty alarmu w panelu */
-	JDateChooser choseAlarm= new JDateChooser();
+	private JDateChooser choseAlarm= new JDateChooser();
 	
 	/** Obiekt przycisku po którym dodajemy event*/
 	public JButton addButton = new JButton("Add Event");

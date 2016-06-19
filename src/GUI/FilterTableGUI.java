@@ -28,17 +28,17 @@ public class FilterTableGUI extends JPanel{
 	/**Obiekt tablicy wydarzen*/
 	public JTable filterTable;
 	/**Obiekt udostepniajacy nam scrollowanie*/
-	JScrollPane js;
+	private JScrollPane js;
 	/**Lista wyboru elementu po ktorym sortujemy*/
 	public JComboBox choise= new JComboBox();
 	/**Etykieta Sort By: Wskazujaca na wybrany element sortowania*/
-	JLabel filter= new JLabel("Sort By: ");
+	private JLabel filter= new JLabel("Sort By: ");
 	/**Obiekt klasy odpowiedzialnej ze polaczenia z baza danych i operacje na niej*/
-	XML_SQL_Manager ser;
+	public XML_SQL_Manager ser;
 	/**Model tabeli*/
-	DefaultTableModel model ;
+	private DefaultTableModel model ;
 	/**Manager tabeli filtrowania zawierajaca handlery*/
-	FilterTableManager filtermanager;
+	public FilterTableManager filtermanager;
 	/**Pole tekstowe na wpisywane dane do filtrowania*/
 	public JTextField filterString= new JTextField(35);
 	/**Obiekt tekstu*/
