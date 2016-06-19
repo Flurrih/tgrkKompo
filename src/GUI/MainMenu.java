@@ -28,6 +28,8 @@ import tgrkKompo.Event;
  *  */
 public class MainMenu extends JPanel implements ActionListener {
 
+	/**Obiekt przycisku do exportu outlooka**/
+	JButton outlook = new JButton("outlook");
 	/**Obiekt przycisku przekierywujacy do Kalendarza*/
 	JButton cal= new JButton("Calendar");
 	/**Obiekt przycisku przekierywujacy do Dodawanie Wydarzenia*/
@@ -109,6 +111,8 @@ public MainMenu(Application app){
 	add(loadXML);
 	saveXML.addActionListener(this);
 	add(saveXML);
+	outlook.addActionListener(this);
+	add(outlook);
 	
 	JLabel talarm=new JLabel("                Today's Alarms");
 	talarm.setFont(new Font("Arial", Font.PLAIN, 24));
@@ -203,6 +207,10 @@ public void actionPerformed(ActionEvent arg0) {
 	if(arg0.getSource() == saveXML)
 	{
 		app.ser.serializeXML();
+	}
+	if(arg0.getSource() == outlook)
+	{
+		ser.toOutlook();
 	}
 }
 	

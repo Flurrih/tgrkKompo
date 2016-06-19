@@ -33,5 +33,18 @@
 	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/xstream-distribution-1.4.9-bin/xstream-1.4.9/lib/xstream/wstx-asl-3.2.7.jar"/>
 	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/xstream-distribution-1.4.9-bin/xstream-1.4.9/lib/xstream/xmlpull-1.1.3.1.jar"/>
 	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/xstream-distribution-1.4.9-bin/xstream-1.4.9/lib/xstream/xom-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/backport-util-concurrent-3.1.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/commons-codec-1.8.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/groovy-all-2.1.7.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/ical4j-1.0.6.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/junit-dep-4.10.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/spock-core-0.7-groovy-2.0.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/tagsoup-1.2.1.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-java-mars-2-win32-x86_64 (1)/ical4j-1.0.6-src/ical4j-1.0.6/lib/mnode-tools-1.22-resources.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

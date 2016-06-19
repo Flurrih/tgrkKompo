@@ -3,7 +3,10 @@ package Logic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.SocketException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,6 +25,20 @@ import com.thoughtworks.xstream.XStream;
 import java.sql.Timestamp;
 
 import Data.EventRepository;
+import net.fortuna.ical4j.data.CalendarOutputter;
+import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.DateTime;
+import net.fortuna.ical4j.model.ValidationException;
+import net.fortuna.ical4j.model.component.VAlarm;
+import net.fortuna.ical4j.model.component.VEvent;
+import net.fortuna.ical4j.model.property.CalScale;
+import net.fortuna.ical4j.model.property.Clazz;
+import net.fortuna.ical4j.model.property.Description;
+import net.fortuna.ical4j.model.property.Method;
+import net.fortuna.ical4j.model.property.ProdId;
+import net.fortuna.ical4j.model.property.Uid;
+import net.fortuna.ical4j.model.property.Version;
+import net.fortuna.ical4j.util.UidGenerator;
 import tgrkKompo.Event;
 
 /**
@@ -359,4 +376,45 @@ public class XML_SQL_Manager {
 		}
 		updateRepoSQL();
 	}
-}
+	
+	public void toOutlook()
+	{
+			ArrayList<Event> events = getAllEventsSQL();
+			Calendar calendar = new Calendar();
+			FileOutputStream fin = null;
+	        try {
+	             fin = new FileOutputStream(new File( "eventsOutlook.ics"));
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        }
+	 
+	 
+	        DateTime dt = new DateTime(events.get(0).eventDate);
+	       
+	        for(int i = 0; i < events.size(); i++)
+	        {
+		        VEvent vEvent = new VEvent(dt, events.get(i).description);
+		        vEvent.getProperties().add(Clazz.PUBLIC);
+		        vEvent.getProperties().add(new Description(events.get(i).description));
+		        vEvent.getAlarms().add(new VAlarm(new DateTime(events.get(i).eventReminderDate)));
+		        calendar.getComponents().add(vEvent);		        	
+	        }
+       
+	        calendar.getProperties().add(new ProdId("-//Outlook//EN"));
+	        calendar.getProperties().add(Version.VERSION_2_0);
+	        calendar.getProperties().add(Method.PUBLISH);
+	       
+	       
+	        CalendarOutputter calendarOutputter = new CalendarOutputter();
+	        calendarOutputter.setValidating(false);
+	       
+	        try {
+	            calendarOutputter.output(calendar, fin);
+	        } catch (IOException | ValidationException e) {
+	            e.printStackTrace();
+	        }
+	       
+	       
+	    }
+	 
+	}
