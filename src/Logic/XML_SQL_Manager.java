@@ -24,6 +24,10 @@ import java.sql.Timestamp;
 import Data.EventRepository;
 import tgrkKompo.Event;
 
+/**
+ * This class export one event to ics file. ISCExport class use CalendarOutputter and VEvent from ical4j library
+ *
+ */
 public class XML_SQL_Manager {
 
 	
@@ -33,7 +37,11 @@ public class XML_SQL_Manager {
 	public static ResultSet rs;
 	
 
-	
+    /**
+     * Static method which take two parameter event, and path and export event to path/eventICS.ics file
+     * @param event which we want export
+     * @param path where we want to save export event file
+     */
 	public XML_SQL_Manager(EventRepository repo)
 	{
 		this.repo = repo;

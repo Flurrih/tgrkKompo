@@ -111,7 +111,7 @@ public class CalendarManager extends MouseAdapter implements ItemListener,Action
 			{
 				if(alerts.get(i).canAlarm() == true)
 				{
-					JOptionPane.showMessageDialog(null, "Todays alarm: " + alerts.get(i).toString());
+					JOptionPane.showMessageDialog(null, "Today's alarm: " + alerts.get(i).toStringAlarm());
 					alerts.get(i).disableAlarm();
 				}
 			}
