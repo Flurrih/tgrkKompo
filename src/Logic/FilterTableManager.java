@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -13,7 +14,7 @@ import GUI.FilterTableGUI;
  * Handler i logika dla FilterTableGUI
  *
  */
-public class FilterTableManager implements KeyListener, ItemListener{
+public class FilterTableManager extends KeyAdapter implements ItemListener{
 
 	/**
 	 * Instancja okna graficznego FilterTableGUI
@@ -28,10 +29,7 @@ public class FilterTableManager implements KeyListener, ItemListener{
 	public FilterTableManager(XML_SQL_Manager ser, FilterTableGUI gui) {
 		this.gui = gui;
 	}
-	
-	public void keyPressed(KeyEvent arg0) {
 
-	}
 
 	/**
 	 * KeyListener handler
@@ -45,17 +43,8 @@ public class FilterTableManager implements KeyListener, ItemListener{
 		
 	}
 
-	
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
 	/**
-	 * ItemListener handlerb
+	 * ItemListener handler
 	 */
 	public void itemStateChanged(ItemEvent arg0) {
 
