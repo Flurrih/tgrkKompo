@@ -2,6 +2,7 @@ package Logic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Date;
 import GUI.EventTableGUI;
 import tgrkKompo.Event;
 
-public class EventTableManager implements MouseListener, ActionListener{
+public class EventTableManager extends MouseAdapter implements ActionListener{
 
 	XML_SQL_Manager ser;
 	public EventTableGUI gui;
@@ -31,27 +32,6 @@ public class EventTableManager implements MouseListener, ActionListener{
 		}
 		
 	}
-
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	public void deleteOldEvents()
 	{
