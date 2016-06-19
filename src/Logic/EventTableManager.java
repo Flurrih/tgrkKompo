@@ -69,7 +69,6 @@ public class EventTableManager implements MouseListener, ActionListener{
 		}
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource() == gui.oldButton)
 		{

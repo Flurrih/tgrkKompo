@@ -13,7 +13,6 @@ public class EditEventManager implements ActionListener{
 		this.gui = editEventGUI;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==gui.edittask)
