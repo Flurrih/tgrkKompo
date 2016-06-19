@@ -168,7 +168,9 @@ public MainMenu(Application app){
 	
 }
 
-/**Handler dla przyciskow*/
+/**Handler dla przyciskow
+ * @param arg0 Obiekt wydarzenia
+ * */
 public void actionPerformed(ActionEvent arg0) {
 	if(arg0.getSource()==cal)
 	{

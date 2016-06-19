@@ -96,7 +96,9 @@ public class EventTableGUI extends JPanel{
 		
 	
 	
-	/**Metoda zwracajaca element wybrany prawym klawiszem myszy*/
+	/**Metoda zwracajaca element wybrany prawym klawiszem myszy
+	 * @return obj
+	 * */
 	public Object[] getSelectedEvent(int clickedRecord)
 	{
 		System.out.println(model.getValueAt(clickedRecord, 0));

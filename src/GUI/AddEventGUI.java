@@ -102,7 +102,9 @@ public class AddEventGUI extends JPanel {
 	}
 	
 	
-	/**Metoda zwaracaj¹ca event dzieki któremu dodajemy go do bazy danych */
+	/**Metoda zwaracaj¹ca event dzieki któremu dodajemy go do bazy danych 
+	 * @return Event
+	 * */
 	@SuppressWarnings("deprecation")
 	public Event getEvent()
 	{
