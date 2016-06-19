@@ -311,7 +311,7 @@ public class XML_SQL_Manager {
 		try
         { 	
         	XStream xStream = new XStream();
-        	events = (ArrayList<Event>) xStream.fromXML(new FileInputStream("xmltest.xml"));
+        	events = (ArrayList<Event>) xStream.fromXML(new FileInputStream("eventsXML.xml"));
         }
    
         catch (FileNotFoundException ex)
