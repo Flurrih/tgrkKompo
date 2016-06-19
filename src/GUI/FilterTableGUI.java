@@ -18,20 +18,34 @@ import Logic.EventTableManager;
 import Logic.FilterTableManager;
 import Logic.XML_SQL_Manager;
 
-public class FilterTableGUI extends JPanel{
 
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Okno Filtrowania wydarzen
+ * */
+public class FilterTableGUI extends JPanel{
+	
+	/**Obiekt tablicy wydarzen*/
 	public JTable filterTable;
+	/**Obiekt udostepniajacy nam scrollowanie*/
 	JScrollPane js;
+	/**Lista wyboru elementu po ktorym sortujemy*/
 	public JComboBox choise= new JComboBox();
+	/**Etykieta Sort By: Wskazujaca na wybrany element sortowania*/
 	JLabel filter= new JLabel("Sort By: ");
+	/**Obiekt klasy odpowiedzialnej ze polaczenia z baza danych i operacje na niej*/
 	XML_SQL_Manager ser;
-	//EditTable e1;
+	/**Model tabeli*/
 	DefaultTableModel model ;
-	
+	/**Manager tabeli filtrowania zawierajaca handlery*/
 	FilterTableManager filtermanager;
+	/**Pole tekstowe na wpisywane dane do filtrowania*/
 	public JTextField filterString= new JTextField(35);
+	/**Obiekt tekstu*/
 	public String selectedChoice;
-	
+	/**Konstruktow g³ówny dodajacy dane do tabeli w zaleznosci od wybranych opcji i wpisanego textu
+	 * @param ser obiekt udostepniajacy nam liste wydarzen
+	 *  */
 	public FilterTableGUI(XML_SQL_Manager ser)
 	{
 		
@@ -55,7 +69,8 @@ public class FilterTableGUI extends JPanel{
 				//e1.eventsTable = this;
 				this.ser = ser;
 	}
-	
+	/**Metoda odswiezajaca nasza tabele
+	 * @param name wyszukiwanie po nazwie*/
 	public void updateData(String name) {
 		//js.removeAll();
 		//filterTable.removeAll();

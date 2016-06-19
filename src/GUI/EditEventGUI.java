@@ -19,31 +19,46 @@ import com.toedter.calendar.JDateChooser;
 import Logic.EditEventManager;
 import Logic.EventTableManager;
 import Logic.XML_SQL_Manager;
-
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Okno Edycji wydarzenia
+ * */
 public class EditEventGUI extends JFrame{
+	/** Etykieta Name wskazujaca na nazwe */
 	JLabel name1= new JLabel("Name: ");
+	/** Etykieta Description wskazujaca na opis */
 	JLabel description1=new JLabel("Description: ");
+	/** Etykieta Place wskazujaca na miejsce */
 	JLabel place1=new JLabel("Place: ");
+	/** Etykieta EventDate wskazujaca na date wydarzenia*/
 	JLabel date1=new JLabel("Event Date: ");
+	/** Etykieta EventAlarm wskazujaca na date alarmu*/
 	JLabel dateA=new JLabel("Alarm Date: ");
+	/**Pole tekstowe nazwy wydarzenia*/
 	public TextField name;
+	/**Pole tekstowe opisu wydarzenia*/
 	public TextField description;
+	/**Pole tekstowe miejsca wydarzenia*/
 	public TextField place;
-	JComboBox day;
-	JComboBox month;
-	JComboBox year;
+	
+	/**Obiekt kalendarza do wyboru daty wydarzenia*/
 	public JDateChooser chose;
 	
-	JComboBox dayA;
-	JComboBox monthA;
-	JComboBox yearA;
+	/**Obiekt kalendarza do wyboru daty alarmu dla wydarzenia*/
 	public JDateChooser choseA;
 	
+	/**Obiekt przycisku realizujacy edycje*/
 	public JButton edittask;
-	JApplet app;
+	/**Obiekt realizujacy edycje tablicy wydarzen*/
 	public EventTableManager eventTable;
+	/**Tablica przechowujaca obiekty eventow*/
 	public Object[] selectedEvent;
+	/**Obiekt klasy odpowiedzialnej ze polaczenia z baza danych i operacje na niej*/
 	public XML_SQL_Manager ser;
+	
+	/**Konstruktor g³ówny edycji wydarzenia zmieniajacy wydarzenia w tabeli
+	 * @param ser dostêp do danych bazy
+	 * @param eventTable wprowadzanie zmian w tabeli*/
 	public EditEventGUI(XML_SQL_Manager ser,EventTableManager eventTable){
 		
 		super();

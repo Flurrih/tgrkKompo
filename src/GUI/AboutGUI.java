@@ -5,9 +5,15 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Panel About w programie
+ */
 public class AboutGUI extends JPanel {
 	
+	/**
+	 * Glowny konstruktor bezparametrywowy dodajacy do Panelu etykiety i informacje z nazwiskami tworców
+	 */
 	public AboutGUI()
 	{
 		add(new JLabel("Organiser"));

@@ -27,27 +27,54 @@ import Logic.AddEventManager;
 import Logic.XML_SQL_Manager;
 import tgrkKompo.Event;
 
+
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Panel Add Event w programie
+ */
 public class AddEventGUI extends JPanel {
 	
+	/** Etykieta Name wskazujaca na nazwe */
 	JLabel name= new JLabel("Name:            ");
+	
+	/** Pole tekstowe. Miejsce na wpisanie nazwy*/
 	JTextField nameT= new JTextField(35);
+	
+	/** Etykieta Description wskazujaca na opis*/
 	JLabel description= new JLabel("Description: ");
+	
+	/** Pole tekstowe. Miejsce na wpisanie opisu*/
 	JTextField descriptionT= new JTextField(35);
+	
+	/** Etykieta Place wskazujaca na miejsce*/
 	JLabel place= new JLabel("Place:            ");
+	
+	/** Pole tekstowe. Miejsce na wpisanie miejsca wydarzenia*/
 	JTextField placeT= new JTextField(35);
 	
-	//data
+	/** Etykieta Data wskazujaca na date*/
 	JLabel data= new JLabel("Data:              ");
+	
+	/** Obiekt odpowiedzialny za wybór daty wydarzenia w panelu */
 	public JDateChooser chose= new JDateChooser();
 	
-	//alarm
+	/** Etykieta alarm wskazujaca na alarm*/
 	JLabel alarm= new JLabel("Alarm:            ");
+	
+	/** Obiekt odpowiedzialny za wybór daty alarmu w panelu */
 	JDateChooser choseAlarm= new JDateChooser();
 	
+	/** Obiekt przycisku po którym dodajemy event*/
 	public JButton addButton = new JButton("Add Event");
 
+	/** Obiekt klasy zajmujacej siê serializacja i równie¿ operacjami na repozytorium bazy */
 	public  XML_SQL_Manager ser;
+	/** Obiekt customowego kalendarza */
 	public CalendarGUI cal;
+	/**Konstruktor g³ówny zajmujacy siê dodaniem do panelu przycisków,pól i etykiet
+	* @param ser Klasa odpowiedzialna za polaczenia z baza
+	* @param cal Klasa kalendarza, potrzebna do odswiezania
+	*/
 	public AddEventGUI(XML_SQL_Manager ser,CalendarGUI cal){
 	this.ser = ser;
 	this.cal=cal;
@@ -74,6 +101,8 @@ public class AddEventGUI extends JPanel {
 	
 	}
 	
+	
+	/**Metoda zwaracaj¹ca event dzieki któremu dodajemy go do bazy danych */
 	@SuppressWarnings("deprecation")
 	public Event getEvent()
 	{

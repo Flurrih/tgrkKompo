@@ -14,27 +14,40 @@ import tgrkKompo.Event;
 
 import Data.EventRepository;
 import Logic.XML_SQL_Manager;
-
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Okno wyswietlajace wydarzenia w dniu kliknietym przez uzytkownika prawym klawiszem myszy w kalendarzu
+ * */
 public class FrameShowTask extends JFrame {
-
+	
+	/**Obiekt daty*/
 	Date data;
+	/**Obiekt panelu do ktorego dodajemy elementu*/
 	JPanel panel;
+	/**Model tabeli*/
 	DefaultTableModel model ;
+	/**Tabela wydarzen*/
 	JTable table;
+	/**Obiekt umozliwiajacy nam scrollowanie wydarzen*/
 	JScrollPane js;
+	/**Tablica nazw kolumn */
 	static Object[] columnNames = {"Event",
         "Description",
         "Place",
         "Data",
         "Alarm",
        };
+	/**Obiekt repozytorium wydarzen dajacy nam  dostep do listy wydarzen*/
 	EventRepository evt=new EventRepository();
+	/**Obiekt zajmujacy sie obslug¹ bazdy danych*/
 	XML_SQL_Manager ser= new XML_SQL_Manager(evt);
+	/**ArrayLista wszystkich wydarzen*/
 	ArrayList<Event> tmp=ser.getAllEventsSQL();
-	
+	/**Tablica do konwersji z listy do tablicy*/
 	Object []rows=new Object[5];
 	
-	
+	/**Konstruktor g³ówny odpowiedzialny za wyswietlenie elementów okna
+	 * @param date Obiekt aktualnej daty*/
 	public FrameShowTask(Date date)
 	{
 		super("Your Tasks this day");

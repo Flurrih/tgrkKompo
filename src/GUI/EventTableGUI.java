@@ -22,19 +22,29 @@ import Logic.EventTableManager;
 import Logic.XML_SQL_Manager;
 import tgrkKompo.Event;
 
-public class EventTableGUI extends JPanel{
 
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Panel wyswietlajacy tabele wydarzen
+ * */
+public class EventTableGUI extends JPanel{
+	/**Obiekt tabeli do ktorej dodajemy eventy*/
 	public JTable table;
-	
+	/**Obiekt udostepniajacy nam scrollowanie*/
 	JScrollPane js;
-	JComboBox choise=new JComboBox();
+	/**Obiekt klasy odpowiedzialnej ze polaczenia z baza danych i operacje na niej*/
 	XML_SQL_Manager ser;
-	//EditTable e1;
+	/**Model tabeli*/
 	DefaultTableModel model ;
+	/**Obiekt przycisku usuwajacy stare wydarzenia*/
 	public JButton oldButton;
-	
+	/**Manager tabeli*/
 	EventTableManager evtab;
+	/**Tablica kwadratowa przechowujaca dane do wyswietlanie*/
 	Object[][] tmp;
+	
+	/**Konstruktor g³ówny odpowiedzialny za dodawanie tabeli i danych do tabeli
+	 * @param ser obiekt udostepniajacy nam liste wydarzen*/
 	public EventTableGUI(XML_SQL_Manager ser)
 	{
 		
@@ -65,7 +75,7 @@ public class EventTableGUI extends JPanel{
 				
 				
 	}
-	
+	/**Metoda do odswiezania tabeli*/
 	public void updateData() {
 		//js.removeAll();
 		model = new DefaultTableModel(ser.getEventsArray(), new DataRepository().getColumnsTable());
@@ -86,7 +96,7 @@ public class EventTableGUI extends JPanel{
 		
 	
 	
-
+	/**Metoda zwracajaca element wybrany prawym klawiszem myszy*/
 	public Object[] getSelectedEvent(int clickedRecord)
 	{
 		System.out.println(model.getValueAt(clickedRecord, 0));

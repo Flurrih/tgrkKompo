@@ -23,22 +23,40 @@ import Data.EventRepository;
 import Logic.*;
 import tgrkKompo.Application;
 
+/**
+ * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
+ * Panel Kalendarza w programie
+ * */
+
 public class CalendarGUI extends JPanel  {
 
+	/**Obiekt repozytorium danych na których operujemy */
 	public DataRepository data = new DataRepository();
+	/**Obiekt Eventow w ktorym mamy dostep do listy eventow */
 	public static EventRepository evRepo;
 	
+	/**Panel dla miesiecy dni i przycisku Go Back*/
 	public JPanel panel = new JPanel();
+	/**Panel dla przyciskow*/
 	public JPanel panel2 = new JPanel();
-
+	/**Lista wyboru miesiaca kalendarza*/
     public JComboBox month = new JComboBox();
+    /**Lista wyboru roku kalendarza*/
     public JComboBox year = new JComboBox();
+    /**Przycisk Go Back dzieki ktoremu wracamy do aktualenj daty*/
     public JButton goBack= new JButton("Go Back");
+    /**Lista przechowujaca wszystkie przyciski w kalendarzu*/
     public ArrayList<JButton> buttons= new ArrayList<JButton>();
+    /**Obiekt daty*/
     public Date date; 
-    
+    /**Obiekt aplikacji g³ównej klasy skupiajacej wszystkie razem*/
     public static Application app;
     
+    /**
+     * Konstruktor g³ówny dodajacy wszystkie elementy kalendarza
+     * @param app Klasa g³ówna programu
+     * @param evRepo dostep do listy wydarzen
+     * */
     public CalendarGUI(Application app, EventRepository evRepo)
     {
     	
@@ -74,12 +92,17 @@ public class CalendarGUI extends JPanel  {
         //addMouseListener(this);
         setSize(500,600);
     }
+    
+    /**Metoda g³ówna tworzaca nowy obietk kalendarza*/
         public static void main(String args[])
         {
                 	CalendarGUI frame = new CalendarGUI(app,evRepo);
         }
         
-        
+        /**Metoda rysujaca kalendarz
+         * @param inputMonth wybrany z listy miesiac
+         * @param inputYearr wybrany z listy rok
+         */
         public void drawCalendar(String inputMonth, Integer inputYearr)
         {
         	
@@ -166,7 +189,7 @@ public class CalendarGUI extends JPanel  {
           	 
 
         }
-        
+        /**Metoda sluzaca do szybkiego odswiezenia kalendarza*/
         public void refreshCalendar()
         {
         	drawCalendar(data.getMonth((date.getMonth())), new Integer((1900+date.getYear())));

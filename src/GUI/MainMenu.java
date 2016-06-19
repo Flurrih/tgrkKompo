@@ -22,42 +22,66 @@ import Logic.XML_SQL_Manager;
 import tgrkKompo.Application;
 import tgrkKompo.Event;
 
+
+/**Klasa odpowiadajaca za interfejs graficzny uzytkownika
+ * Panel g³ówny programu, menu g³ówne
+ *  */
 public class MainMenu extends JPanel implements ActionListener {
 
+	/**Obiekt przycisku przekierywujacy do Kalendarza*/
 	JButton cal= new JButton("Calendar");
+	/**Obiekt przycisku przekierywujacy do Dodawanie Wydarzenia*/
 	JButton adevnt= new JButton("Add Event");
+	/**Obiekt przycisku przekierywujacy do Tabeli*/
 	JButton table= new JButton("Table");
+	/**Obiekt przycisku przekierywujacy do Filtrowania*/
 	JButton filter= new JButton("Search Event");
+	/**Obiekt przycisku przekierywujacy do panelu About*/
 	JButton about= new JButton("About");
-	JButton cfg= new JButton("Config");
+	/**Obiekt przycisku pozwalajacy za³adowac plik XML z danymi*/
 	JButton loadXML= new JButton("loadXML");
+	/**Obiekt przycisku pozwalajacy zapisac plik XML z danymi*/
 	JButton saveXML= new JButton("saveXML");
+	/**Obiekt g³ówenj klasy programu skupiacej wszystkie komponenty*/
 	Application app;
+	/**Etykieta nazwy programu*/
 	JLabel best=new JLabel("       TGRK Best Organiser");
 	
-	
+	/**Model tabeli dla alarmów*/
 	DefaultTableModel model ;
+	/**Obiekt tabeli alarmów*/
 	JTable tablee;
+	/**Scroll dla alarmow*/
 	JScrollPane js;
+	/**Tablica nazw kolumn dla alarmów*/
 	static Object[] columnNames = {"Event",
         "Description",
         "Place",
         "Data",
        };
+	/**Obiekt repozytorium wydarzen*/
 	EventRepository evt=new EventRepository();
+	/**Obiekt wykonujacy operacje na bazie danych*/
 	XML_SQL_Manager ser= new XML_SQL_Manager(evt);
+	/**ArrayLista zawierajaca wszystkie wydarzenia*/
 	ArrayList<Event> tmp=ser.getAllEventsSQL();
+	/**Tablica dla konwersji alarmow do tabeli*/
 	Object []rows=new Object[4];
-	
+	/**Tablica dla konwersji wydarzen do tabeli*/
 	Object []rows1=new Object[3];
+	/**Model tabeli wydarzen*/
 	DefaultTableModel model1 ;
+	/**Tabela dla wydarzen*/
 	JTable tablee1;
+	/**Scroll dla wydarzen*/
 	JScrollPane js1;
+	/**Tablica nazw kolumn dla wydarzen*/
 	static Object[] columnNames1 = {"Event",
         "Description",
         "Place",
        };
-	
+	/**Konstruktor g³ówny wyswietlajacy wszystkie elementy
+	 * @param app obiekt g³ównej klasy aplikacji*/
 public MainMenu(Application app){
 	//super();
 	this.app=app;
@@ -143,6 +167,8 @@ public MainMenu(Application app){
 	
 	
 }
+
+/**Handler dla przyciskow*/
 public void actionPerformed(ActionEvent arg0) {
 	if(arg0.getSource()==cal)
 	{
@@ -167,12 +193,7 @@ public void actionPerformed(ActionEvent arg0) {
 	{
 		app.selectTab(5);
 	}
-	if(arg0.getSource()==cfg)
-	{
-		//System.out.println("Dziala");
-		FrameCfg asd = new FrameCfg();
-		asd.setVisible(true);
-	}
+
 	if(arg0.getSource() == loadXML)
 	{
 		app.ser.updateFromXML();
