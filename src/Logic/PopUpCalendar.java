@@ -20,7 +20,7 @@ public class PopUpCalendar extends JPopupMenu implements ActionListener {
 	 /**G³ówny konstruktor okna popup
 	  * @param tmp obiekt daty 
 	  * */
-	 PopUpCalendar(Date tmp)
+	 public PopUpCalendar(Date tmp)
 	 {
 		 	this.tmp=tmp;
 			showtasks=new JMenuItem("Show Tasks");
