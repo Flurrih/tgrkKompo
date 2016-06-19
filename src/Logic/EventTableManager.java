@@ -11,18 +11,39 @@ import java.util.Date;
 import GUI.EventTableGUI;
 import tgrkKompo.Event;
 
+/**
+ * Handler i logika dla EventTableGUI
+ *
+ */
 public class EventTableManager extends MouseAdapter implements ActionListener{
 
+	/**
+	 * Obiekt serializatora 
+	 */
 	XML_SQL_Manager ser;
+	/**
+	 * Instancja okna graficznego EventTableGUI
+	 */
 	public EventTableGUI gui;
 
+	/**
+	 * Indeks wybranego wydarzenia (-1 - nie wybrano ¿adnego)
+	 */
 	public int clickedRecord = -1;
 	
+	/**
+	 * Konstruktor klasy
+	 * @param ser - obiekt serializatora
+	 * @param gui - obiekt okna EventTable
+	 */
 	public EventTableManager(XML_SQL_Manager ser, EventTableGUI gui) {
 		this.ser = ser;
 		this.gui = gui;
 	}
 
+	/**
+	 * MouseAdapter handler
+	 */
 	public void mouseClicked(MouseEvent arg0) {
 		if(arg0.getButton()==arg0.BUTTON3)
 		{
@@ -33,6 +54,9 @@ public class EventTableManager extends MouseAdapter implements ActionListener{
 		
 	}
 
+	/**
+	 * Metoda do usuwania wydarzeñ z dat¹ starsz¹ ni¿ aktualny dzieñ
+	 */
 	public void deleteOldEvents()
 	{
 		ArrayList<Event> events = ser.getAllEventsSQL();
@@ -49,6 +73,9 @@ public class EventTableManager extends MouseAdapter implements ActionListener{
 		}
 	}
 
+	/**
+	 * ActionListener handler
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource() == gui.oldButton)
 		{

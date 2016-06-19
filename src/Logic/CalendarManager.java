@@ -21,18 +21,33 @@ import tgrkKompo.Application;
 import tgrkKompo.Event;
 import GUI.CalendarGUI;
 
-
+/**
+ * Handler oraz logika okna CalendarGUI
+ *
+ */
 public class CalendarManager extends MouseAdapter implements ItemListener,ActionListener{
 
+	/**
+	 * Instancja okna graficznego kalendarza
+	 */
 	CalendarGUI cal;
+	/**
+	 * Lista alarmów aplikacji
+	 */
 	ArrayList<Event> alerts;
 	
+	/**
+	 * Konstruktor kalendarza
+	 * @param cal - obiekt okna kalendarza
+	 */
 	public CalendarManager(CalendarGUI cal)
 	{
 		this.cal=cal;
 		alerts = cal.app.ser.getTodaysAlarmsEventsSQL(DateFormat.getDateInstance().format(new Date()));
 	}
-	
+	/**
+	 * ItemListener handler
+	 */
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getStateChange() == ItemEvent.SELECTED)
         {
@@ -42,7 +57,9 @@ public class CalendarManager extends MouseAdapter implements ItemListener,Action
         }
 		
 	}
-
+	/**
+	 * ActionListener handler
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==cal.goBack)
 		{
@@ -69,6 +86,9 @@ public class CalendarManager extends MouseAdapter implements ItemListener,Action
 
 	}
 	
+	/**
+	 * MouseAdapter
+	 */
 	public void mouseClicked(MouseEvent arg0) {
 		for(int i=0;i<cal.buttons.size();i++)
 		{
@@ -85,13 +105,18 @@ public class CalendarManager extends MouseAdapter implements ItemListener,Action
 		
 	}
 
+	/**
+	 * TO DEL??????????????????????????????????????????????????????????????????????????????
+	 */
 	public void mouseEntered(MouseEvent arg0) {
 		//JOptionPane.showMessageDialog(null, "My");
 		if(cal.app.alertsChecked == false)
 			checkAlarm();
 		//cal.refreshCalendar();
 	}
-
+	/**
+	 * TO DEL??????????????????????????????????????????????????????????????????????????????
+	 */
 	public void mouseExited(MouseEvent arg0) {
 		//JOptionPane.showMessageDialog(null, "My");
 		
@@ -101,6 +126,9 @@ public class CalendarManager extends MouseAdapter implements ItemListener,Action
 		
 	}
 
+	/**
+	 * Metoda wyœwietlaj¹ca alarmy
+	 */
 	public void checkAlarm()
 	{
 		System.out.println(alerts.size());

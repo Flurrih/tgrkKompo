@@ -9,21 +9,33 @@ import java.awt.event.KeyListener;
 
 import GUI.FilterTableGUI;
 
+/**
+ * Handler i logika dla FilterTableGUI
+ *
+ */
 public class FilterTableManager implements KeyListener, ItemListener{
 
+	/**
+	 * Instancja okna graficznego FilterTableGUI
+	 */
 	FilterTableGUI gui;
+	
+	/**
+	 * Konstrktor klasy
+	 * @param ser - okbiekt serializatora
+	 * @param gui - obiekt okna FilterTable
+	 */
 	public FilterTableManager(XML_SQL_Manager ser, FilterTableGUI gui) {
 		this.gui = gui;
 	}
-
-
-
 	
 	public void keyPressed(KeyEvent arg0) {
 
 	}
 
-	
+	/**
+	 * KeyListener handler
+	 */
 	public void keyReleased(KeyEvent arg0) {
 		if(!(arg0.getKeyChar()==27||arg0.getKeyChar()==65535))//this section will execute only when user is editing the JTextField
         {
@@ -42,7 +54,9 @@ public class FilterTableManager implements KeyListener, ItemListener{
 
 
 
-	
+	/**
+	 * ItemListener handlerb
+	 */
 	public void itemStateChanged(ItemEvent arg0) {
 
 			if(gui.choise.getSelectedItem() == "Name")

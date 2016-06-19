@@ -25,22 +25,32 @@ import Data.EventRepository;
 import tgrkKompo.Event;
 
 /**
- * This class export one event to ics file. ISCExport class use CalendarOutputter and VEvent from ical4j library
+ * Klasa odpowiedzialna za wszelkie operacje zwi¹zane z SQL, XML 
  *
  */
 public class XML_SQL_Manager {
 
-	
+	/**
+	 * statyczne obiekt repozytorium
+	 */
 	static EventRepository repo;
+	/**
+	 * statyczny obiekt do ³¹czenia z baz¹ danych
+	 */
 	public static Connection con;
+	/**
+	 * statyczny obiekt odpowiedzialny za zapytania do bazy danych
+	 */
 	public static Statement stmt;
+	/**
+	 * stayczny obiekt do przechowywania wyniku zapytania SQL
+	 */
 	public static ResultSet rs;
 	
 
     /**
-     * Static method which take two parameter event, and path and export event to path/eventICS.ics file
-     * @param event which we want export
-     * @param path where we want to save export event file
+     * Konstruktor klasy
+     * @param repo - instancja repozytorium która przechowywuje wszystkie wydarzenia aplikacji
      */
 	public XML_SQL_Manager(EventRepository repo)
 	{
@@ -48,24 +58,25 @@ public class XML_SQL_Manager {
 		connectToDatabase();
 	}
 	
-
+	/**
+	 * statyczna metoda do ³¹czenia z baz¹ danych
+	 */
 	private static void connectToDatabase()
 	{
 	    try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/KompoDB?useSSL=false","root", "haslo123");
 			stmt = con.createStatement();
 	    } catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * statyczna metoda odpowiedzialna za dodawanie pojedynczego wydarzenia
+	 * @param ev
+	 */
 	public static void addEventSQL(Event ev)
 	{
-		//connectToDatabase();
-		try {
-			//connectToDatabase();
-			
+		try {			
 			stmt.executeUpdate("insert into events (name,description,place,eventDate,eventReminderDate)values ('" 
 					+ ev.name +"','" 
 					+ ev.description + "','" 
@@ -78,12 +89,13 @@ public class XML_SQL_Manager {
 			sqlException.printStackTrace();
 		}
 		updateRepoSQL();
-
 	}
-	
+	/**
+	 * Metoda zwracaj¹ca liste wydarzeñ z bazy danych SQL
+	 * @return zwraca liste typu Event
+	 */
 	public static ArrayList<Event> getAllEventsSQL()
 	{	
-		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {
@@ -101,12 +113,12 @@ public class XML_SQL_Manager {
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
-		
-
-		
 		return events;
 	}
-	
+	/**
+	 * Metoda do edytowania wydarzenia z SQL
+	 * @param obj - wydarzenie do edycji
+	 */
 	public static void editEvent(Object[] obj)
 	{
 
@@ -119,12 +131,15 @@ public class XML_SQL_Manager {
 		updateRepoSQL();
 	}
 	
+	/**
+	 * Metoda zwracaj¹ca tablice obiektów, ArrayList<Event> jest konwenterowany na Object[][]
+	 * @return tablice wydarzeñ
+	 */
 	public Object[][] getEventsArray()
 	{
 		updateRepoSQL();
 		Object[][] ret = new Object[repo.eventList.size()][5];
 
-		
 		for(int i = 0; i < repo.eventList.size(); i++)
 		{
 		
@@ -134,16 +149,19 @@ public class XML_SQL_Manager {
 			ret[i][3] = repo.eventList.get(i).eventDate.toString();
 			ret[i][4] = repo.eventList.get(i).eventReminderDate.toString();
 		}
-
-
 		return ret;
 	}
-	
+	/**
+	 * Metoda przepisuj¹ca wydarzenia z bazy danych do repozytirium
+	 */
 	public static void updateRepoSQL()
 	{
 		repo.addEvents(getAllEventsSQL());
 	}
-	
+	/**
+	 * Metoda usuwaj¹ca rekord z bazy danych
+	 * @param obj - obiekt do usuniêcia
+	 */
 	public static void deleteTaskSQL(Object[] obj)
 	{
 
@@ -154,9 +172,12 @@ public class XML_SQL_Manager {
 		}
 		updateRepoSQL();
 	}
+	/**
+	 * Metoda usuwaj¹ca rekord z bazy danych
+	 * @param obj - obiekt typu Event do usuniêcia
+	 */
 	public static void deleteTaskSQL(Event obj)
 	{
-
 		try {
 			stmt.executeUpdate("DELETE FROM events WHERE name = '" + obj.name + "'");
 		} catch (SQLException sqlException) {
@@ -164,7 +185,9 @@ public class XML_SQL_Manager {
 		}
 		updateRepoSQL();
 	}
-	
+	/**
+	 * Metoda usuwaj¹ca wszystkie rekordy z bazy danych
+	 */
 	public static void truncateDB()
 	{
 		try {
@@ -174,7 +197,11 @@ public class XML_SQL_Manager {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * TO DEL???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+	 * @param name
+	 * @return
+	 */
 	public static Object[][] findEventsByName(String name)
 	{
 		//connectToDatabase();
@@ -213,8 +240,13 @@ public class XML_SQL_Manager {
 		return ret;
 	}
 
+	/**
+	 * Metoda do filtrowania wydarzeñ
+	 * @param selectedChoice - parametr okreœlaj¹cy po czym filtrujemy np. name, place
+	 * @param name - string który jest wyszukiwany w wyrazie
+	 * @return przefiltrowana tablica obiektów
+	 */
 	public Object[][] findEventsBy(String selectedChoice, String name) {
-		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {
@@ -249,10 +281,13 @@ public class XML_SQL_Manager {
 
 		return ret;
 	}
-	
+	/**
+	 * MEtoda zwracaj¹ca liste typu Event których data alarmu równa jest z aktualna dat¹
+	 * @param date
+	 * @return
+	 */
 	public static ArrayList<Event> getTodaysAlarmsEventsSQL(String date)
 	{	
-		//connectToDatabase();
 		ArrayList<Event> events = new ArrayList<Event>();
 		
 		try {
@@ -270,18 +305,17 @@ public class XML_SQL_Manager {
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
-		
-
-		
 		return events;
 	}
-	
+	/**
+	 * Metoda do serializaji listy wydarzeñ do formatu XML. (Export)
+	 */
 	public static void serializeXML()
 	{
       	try 
         {
             XStream xstream = new XStream();
-            PrintWriter writer = new PrintWriter(new File("xmltest.xml"));
+            PrintWriter writer = new PrintWriter(new File("eventsXML.xml"));
             writer.print(xstream.toXML((ArrayList<Event>)repo.eventList));
            writer.close();
         }
@@ -291,7 +325,10 @@ public class XML_SQL_Manager {
         }
 	}
 	
-	
+	/**
+	 * Metoda do deserializacji wydarzeñ z pliku XML do listy typu Event
+	 * @return lista z deserializowanymi wydarzeniami
+	 */
 	public static ArrayList<Event> deserializeXML()
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -308,7 +345,9 @@ public class XML_SQL_Manager {
 
 		return events;
 	}
-	
+	/**
+	 * Metoda wypelniaj¹ca liste z repozytorium, wydarzeniami z pliku XML. (Import)
+	 */
 	public static void updateFromXML()
 	{
 		ArrayList<Event> events = deserializeXML();

@@ -15,18 +15,52 @@ import GUI.*;
 import Logic.CalendarManager;
 import Logic.XML_SQL_Manager;
 
+/**
+ * G³ówna klasa aplikacji, w której tworzymy interfejs panelu
+ *
+ */
 public class Application extends JApplet implements KeyListener{
 	
+	/**
+	 * Obiekt g³ownego palenu aplikacji
+	 */
 	public JTabbedPane mainPane = new JTabbedPane();
+	/**
+	 * Obiekt g³ównego repozytorium aplikacji
+	 */
 	EventRepository evRepo = new EventRepository();
+	/**
+	 * Obiekt g³ównego serializatora aplikacji
+	 */
 	public XML_SQL_Manager ser = new XML_SQL_Manager(evRepo);
+	/**
+	 * Obiekt okna kalendarza
+	 */
 	public CalendarGUI cale=new CalendarGUI(this,evRepo);
+	/**
+	 * Obiekt okna z tablic¹ wydarzeñ
+	 */
 	public EventTableGUI evtab;
+	/**
+	 * Obiekt okna dodawania wydarzenia
+	 */
 	public AddEventGUI addev;
+	/**
+	 * Obiekt okna filtracji wydarzeñ
+	 */
 	public FilterTableGUI filter;
+	/**
+	 * Flaga okreœlaj¹ca czy aplikacja wykona³a sprawdzenia alarmu
+	 */
 	public Boolean alertsChecked = false;
+	/**
+	 * Obiekt okna menu g³ownego
+	 */
 	public MainMenu main= new MainMenu(this);
 	
+	/**
+	 * Metoda inicjalizacji panelu graficznego
+	 */
 	public void init(){
 		addev = new AddEventGUI(ser,cale);
 		evtab =  new EventTableGUI(ser);
@@ -43,11 +77,18 @@ public class Application extends JApplet implements KeyListener{
 		add(mainPane);
 	}
 	
+	/**
+	 * Metoda zmieniaj¹ca zak³adke panelu aplikacji
+	 * @param i - indeks zak³¹dki
+	 */
 	public void selectTab(int i)
 	{
 		mainPane.setSelectedIndex(i);
 	}
 
+	/**
+	 * KeyListener aplikacji
+	 */
 	public void keyPressed(KeyEvent arg0) {
 		if(arg0.getKeyCode() ==KeyEvent.VK_1)
 		{
