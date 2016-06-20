@@ -351,10 +351,11 @@ public class XML_SQL_Manager {
 	        }
 	 
 	 
-	        DateTime dt = new DateTime(events.get(0).eventDate);
+	        
 	       
 	        for(int i = 0; i < events.size(); i++)
 	        {
+	        	DateTime dt = new DateTime(events.get(i).eventDate);
 		        VEvent vEvent = new VEvent(dt, events.get(i).description);
 		        vEvent.getProperties().add(Clazz.PUBLIC);
 		        vEvent.getProperties().add(new Description(events.get(i).description));

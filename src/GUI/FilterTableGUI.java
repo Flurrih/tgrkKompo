@@ -68,6 +68,9 @@ public class FilterTableGUI extends JPanel{
 				add(js);
 				//e1.eventsTable = this;
 				this.ser = ser;
+				
+				updateData(filterString.getText());
+	            updateUI();
 	}
 	/**Metoda odswiezajaca nasza tabele
 	 * @param name wyszukiwanie po nazwie*/
