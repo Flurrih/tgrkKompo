@@ -49,7 +49,7 @@ public class EventTableGUI extends JPanel{
 	{
 		
 				super();
-				oldButton = new JButton("oldButton");
+				oldButton = new JButton("Remove old events");
 				//add(new JLabel("Sort By: "));
 				//choise.addItem("Name ");
 				//choise.addItem("Description ");

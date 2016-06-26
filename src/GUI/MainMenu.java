@@ -29,21 +29,21 @@ import tgrkKompo.Event;
 public class MainMenu extends JPanel implements ActionListener {
 
 	/**Obiekt przycisku do exportu outlooka**/
-	private  JButton outlook = new JButton("outlook");
+	private  JButton outlook = new JButton("Export to Outlook");
 	/**Obiekt przycisku przekierywujacy do Kalendarza*/
 	private JButton cal= new JButton("Calendar");
 	/**Obiekt przycisku przekierywujacy do Dodawanie Wydarzenia*/
 	private JButton adevnt= new JButton("Add Event");
 	/**Obiekt przycisku przekierywujacy do Tabeli*/
-	private JButton table= new JButton("Table");
+	private JButton table= new JButton("Events");
 	/**Obiekt przycisku przekierywujacy do Filtrowania*/
-	private JButton filter= new JButton("Search Event");
+	private JButton filter= new JButton("Filter");
 	/**Obiekt przycisku przekierywujacy do panelu About*/
 	private JButton about= new JButton("About");
 	/**Obiekt przycisku pozwalajacy za³adowac plik XML z danymi*/
-	private JButton loadXML= new JButton("loadXML");
+	private JButton loadXML= new JButton("Load from XML");
 	/**Obiekt przycisku pozwalajacy zapisac plik XML z danymi*/
-	private JButton saveXML= new JButton("saveXML");
+	private JButton saveXML= new JButton("Save to XML");
 	/**Obiekt g³ówenj klasy programu skupiacej wszystkie komponenty*/
 	public Application app;
 	/**Etykieta nazwy programu*/

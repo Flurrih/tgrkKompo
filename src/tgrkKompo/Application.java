@@ -65,10 +65,10 @@ public class Application extends JFrame implements KeyListener{
 		addev = new AddEventGUI(ser,cale);
 		evtab =  new EventTableGUI(ser);
 		filter = new FilterTableGUI(ser);
-		this.setSize(500,500);
+		this.setSize(500,530);
 		mainPane.add("Main menu", main);
 		mainPane.add("Calendar", cale);
-		mainPane.add("Add Task", addev);
+		mainPane.add("Add Event", addev);
 		mainPane.add("Events", evtab);
 		mainPane.add("Filter", filter);
 		mainPane.add("About", new AboutGUI());
@@ -95,27 +95,27 @@ public class Application extends JFrame implements KeyListener{
 	 * KeyListener aplikacji
 	 */
 	public void keyPressed(KeyEvent arg0) {
-		if(arg0.getKeyCode() ==KeyEvent.VK_1)
+		if(arg0.getKeyCode() ==KeyEvent.VK_M)
 		{
 			mainPane.setSelectedIndex(0);
 		}
-		if(arg0.getKeyCode() ==KeyEvent.VK_2)
+		if(arg0.getKeyCode() ==KeyEvent.VK_C)
 		{
 			mainPane.setSelectedIndex(1);
 		}
-		if(arg0.getKeyCode() ==KeyEvent.VK_3)
+		if(arg0.getKeyCode() ==KeyEvent.VK_A)
 		{
 			mainPane.setSelectedIndex(2);
 		}
-		if(arg0.getKeyCode() ==KeyEvent.VK_4)
+		if(arg0.getKeyCode() ==KeyEvent.VK_E)
 		{
 			mainPane.setSelectedIndex(3);
 		}
-		if(arg0.getKeyCode() ==KeyEvent.VK_5)
+		if(arg0.getKeyCode() ==KeyEvent.VK_F)
 		{
 			mainPane.setSelectedIndex(4);
 		}
-		if(arg0.getKeyCode() ==KeyEvent.VK_6)
+		if(arg0.getKeyCode() ==KeyEvent.VK_I)
 		{
 			mainPane.setSelectedIndex(5);
 		}

@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,7 @@ import tgrkKompo.Event;
  * Klasa odpowiadajaca za interfejs graficzny uzytkownika 
  * Panel Add Event w programie
  */
-public class AddEventGUI extends JPanel {
+public class AddEventGUI extends JPanel{
 	
 	/** Etykieta Name wskazujaca na nazwe */
 	private JLabel name= new JLabel("Name:            ");
@@ -98,6 +99,7 @@ public class AddEventGUI extends JPanel {
 	add(choseAlarm);
 
 	add(addButton);
+	
 	
 	}
 	
