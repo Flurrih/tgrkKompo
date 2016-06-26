@@ -19,7 +19,7 @@ import Logic.XML_SQL_Manager;
  * G³ówna klasa aplikacji, w której tworzymy interfejs panelu
  *
  */
-public class Application extends JApplet implements KeyListener{
+public class Application extends JFrame implements KeyListener{
 	
 	/**
 	 * Obiekt g³ownego palenu aplikacji
@@ -61,11 +61,11 @@ public class Application extends JApplet implements KeyListener{
 	/**
 	 * Metoda inicjalizacji panelu graficznego
 	 */
-	public void init(){
+	public void initialize(){
 		addev = new AddEventGUI(ser,cale);
 		evtab =  new EventTableGUI(ser);
 		filter = new FilterTableGUI(ser);
-		setSize(500,500);
+		this.setSize(500,500);
 		mainPane.add("Main menu", main);
 		mainPane.add("Calendar", cale);
 		mainPane.add("Add Task", addev);
@@ -74,7 +74,12 @@ public class Application extends JApplet implements KeyListener{
 		mainPane.add("About", new AboutGUI());
 		mainPane.addKeyListener(this);
 		mainPane.addMouseListener(new CalendarManager(cale));
-		add(mainPane);
+		this.add(mainPane);
+		this.setVisible(true);
+	}
+	public Application()
+	{
+		initialize();
 	}
 	
 	/**
